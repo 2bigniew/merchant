@@ -1,0 +1,10 @@
+dist/**/*.*
+build/**/*.*
+reports/**/*.*
+coverage/**/*.*
+node_modules/**/*.*
+
+**/*.json
+**/*.yml
+
+.DS_Store
