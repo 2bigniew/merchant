@@ -2,7 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b6e0dde-f703-4299-9ecf-c296df678b93" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/back/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/back/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/contract/Account.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/contract/Company.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/contract/Customer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/contract/Invoice.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/contract/InvoicePosition.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/contract/Settings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/company.db.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/helpers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/test/db/account.db.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/test/db/company.db.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/test/db/helpers.db.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/contract/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/contract/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/lib/db/init.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/src/lib/db/init.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/lib/db/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/src/lib/db/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -10,7 +30,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/app_backend" />
   </component>
   <component name="ProjectId" id="1uDoXBr1Y7F4ggSl7BK32ULRtbC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -22,11 +42,98 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/app_backend/test/db" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/app_backend/node_modules/jest" />
+    <property name="nodejs_package_manager_path" value="yarn" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/app_backend/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app_backend/test/db" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Jest.Database - Helpers.prepareCreateProps">
+    <configuration name="Database - Account Table" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/app_backend" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/app_backend/test/db/account.db.spec.ts" />
+      <test-names>
+        <test-name value="Database - Account Table" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Database - Company Table" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/app_backend" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/app_backend/test/db/company.db.spec.ts" />
+      <test-names>
+        <test-name value="Database - Company Table" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Database - Company Table.Should get all data from db - company table" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/app_backend" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/app_backend/test/db/company.db.spec.ts" />
+      <test-names>
+        <test-name value="Database - Company Table" />
+        <test-name value="Should get all data from db - company table" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Database - Company Table.Should get all data from db" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/app_backend" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/app_backend/test/db/company.db.spec.ts" />
+      <test-names>
+        <test-name value="Database - Company Table" />
+        <test-name value="Should get all data from db" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Database - Helpers.prepareCreateProps" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/app_backend" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/app_backend/test/db/helpers.db.spec.ts" />
+      <test-names>
+        <test-name value="Database - Helpers" />
+        <test-name value="prepareCreateProps" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Jest.Database - Helpers.prepareCreateProps" />
+        <item itemvalue="Jest.Database - Company Table.Should get all data from db - company table" />
+        <item itemvalue="Jest.Database - Company Table" />
+        <item itemvalue="Jest.Database - Account Table" />
+        <item itemvalue="Jest.Database - Company Table.Should get all data from db" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -37,6 +144,17 @@
       <option name="presentableId" value="Default" />
       <updated>1624209558077</updated>
       <workItem from="1624209559670" duration="401000" />
+      <workItem from="1624255584202" duration="52000" />
+      <workItem from="1624475136147" duration="3598000" />
+      <workItem from="1624515123846" duration="610000" />
+      <workItem from="1624806359612" duration="16801000" />
+      <workItem from="1624863245843" duration="24000" />
+      <workItem from="1625415656760" duration="4194000" />
+      <workItem from="1625465636370" duration="21000" />
+      <workItem from="1626626404537" duration="8244000" />
+      <workItem from="1626676633548" duration="95000" />
+      <workItem from="1627236572320" duration="1815000" />
+      <workItem from="1627238400623" duration="3260000" />
     </task>
     <servers />
   </component>
