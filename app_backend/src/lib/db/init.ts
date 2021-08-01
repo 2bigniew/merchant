@@ -1,8 +1,10 @@
 import { DB } from './main'
+import {Database} from "sqlite3";
+import connection from "./connection";
 
 class InitDB extends DB {
-  constructor() {
-    super()
+  constructor(db: Database) {
+    super(db)
   }
 
   public async initHandler(): Promise<void> {
@@ -158,14 +160,48 @@ class InitDB extends DB {
     })
   }
 
+  public async initTestCustomerData(accountId: number): Promise<void> {
+    return new Promise((resolve, reject) => {
+      this.db.serialize(() => {
+        this.db.run(`INSERT INTO customer (
+          account_id, name, street, bulding_number, locality, postal_code, city, country, nip, bank_account, bank_name
+        ) VALUES 
+          (${accountId}, 'Otcom','Hallows','9','1','18-500','Kolno','Poland','1789442890','32168545031438073902','Stim Bank'),
+          (${accountId}, 'Namfix','Redwing','03','5','90-360','Zbytków','Poland','5983075519','44422159652897351161','Flowdesk Bank'),
+          (${accountId}, 'Mat Lam Tam','Buena Vista','888','1','64-630','Ryczywół','Poland','9954598880','76618335797783923466','Trippledex Bank'),
+          (${accountId}, 'Stronghold','Harbort','329','87','75-571','Osiek nad Notecią','Poland','3176427991','74342351246453927637','Prodder Bank'),
+          (${accountId}, 'Transcof','Montana','206','102','38-123','Wysoka Strzyżowska','Poland','7195596289','65693911804359744968','Hatity Bank'),
+          (${accountId}, 'Fintone','Kensington','92','25','34-105','Radocza','Poland','9729326333','27436131917979079435','Flexidy Bank');`)
+      })
+
+      this.db.prepare('SELECT * FROM customer', (err) => {
+        if (err) {
+          reject(err)
+        }
+
+        resolve()
+      })
+    })
+  }
+
   public async deleteData(): Promise<any> {
+    const deleteCustomer = new Promise((resolve, reject) => {
+      this.db.run(`DELETE FROM customer`, (err) => {
+        if (err) {
+          reject(err)
+        }
+
+        resolve('customer deleted')
+      })
+    })
+
     const deleteCompany = new Promise((resolve, reject) => {
       this.db.run(`DELETE FROM company`, (err) => {
         if (err) {
           reject(err)
         }
 
-        resolve('')
+        resolve('company deleted')
       })
     })
     const deleteAccount = new Promise((resolve, reject) => {
@@ -174,12 +210,18 @@ class InitDB extends DB {
           reject(err)
         }
 
-        resolve('')
+        resolve('account deleted')
       })
     })
 
-    return Promise.all([deleteCompany, deleteAccount])
+    const results = []
+    for await (const query of [deleteCustomer, deleteCompany, deleteAccount]) {
+      const result = await query
+      results.push(result)
+    }
+
+    return results
   }
 }
 
-export default new InitDB()
+export default new InitDB(connection)

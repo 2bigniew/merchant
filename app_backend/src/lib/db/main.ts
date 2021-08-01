@@ -1,18 +1,13 @@
 import sqlite3, { Database } from 'sqlite3'
-import * as dotenv from 'dotenv'
-import path from 'path'
 import { TableName } from '../../../contract'
 import { SQLitiffy } from './helpers'
 
-dotenv.config({ path: path.resolve('.env') })
-
 export abstract class DB {
   protected db: Database
-  protected dbName: string = getDbName()
 
-  constructor() {
+  protected constructor(db: Database) {
     sqlite3.verbose()
-    this.db = new sqlite3.Database(this.dbName)
+    this.db = db
   }
 
   protected async get<T, R>(query: string, params?: R): Promise<T> {
@@ -64,14 +59,3 @@ export abstract class DB {
   }
 }
 
-const getDbName = (): string => {
-  if (process.env.MERCHANT_PROD === 'in_progress') {
-    return process.env.PROD_DB_NAME!
-  }
-
-  if (process.env.NODE_ENV === 'test' || process.env.JEST_WORKER_ID) {
-    return process.env.TEST_DB_NAME || 'merchant_db_test_default'
-  }
-
-  return process.env.DB_NAME || 'merchant_db_default'
-}

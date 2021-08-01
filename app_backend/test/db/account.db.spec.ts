@@ -74,7 +74,7 @@ describe('Database - Account Table', () => {
 
     expect(account!.id).toBe(updatedAccount!.id)
     expect(account).not.toMatchObject(updatedAccount!)
-    expect(updatedAccount).toMatchObject(payload)
+    expect(updatedAccount).toMatchObject({ ...account, ...payload })
   })
 
   it('Should return undefined if account to update does not exist', async () => {

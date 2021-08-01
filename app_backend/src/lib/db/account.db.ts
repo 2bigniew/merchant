@@ -1,11 +1,13 @@
+import { Database } from 'sqlite3'
 import { DB } from './main'
 import { Account, CreateAccountPayload, UpdateAccountPayload } from '../../../contract/Account'
 import { prepareUpdateProps } from './helpers'
 import { TableName } from '../../../contract'
+import connection from './connection'
 
 class AccountTable extends DB {
-  constructor(private tableName: TableName = 'account') {
-    super()
+  constructor(db: Database, private tableName: TableName = 'account') {
+    super(db)
   }
 
   public async getAccounts(): Promise<Account[]> {
@@ -52,4 +54,4 @@ class AccountTable extends DB {
   }
 }
 
-export default new AccountTable()
+export default new AccountTable(connection)

@@ -2,21 +2,26 @@ import { DB } from './main'
 import { DBObject, TableName } from '../../../contract'
 import { CreateCompanyPayload, Company, UpdateCompanyPayload } from '../../../contract/Company'
 import {
+  getSQLitifiedKeysNames,
   mapDBObjectToJSFormat,
   mapJSObjectToDBFormat,
   prepareCreateProps,
   prepareUpdateProps,
+  removeUndefined,
+  SQLitiffy,
 } from './helpers'
+import {Database} from "sqlite3";
+import connection from "./connection";
 
 class CompanyTable extends DB {
-  constructor(private tableName: TableName = 'company') {
-    super()
+  constructor(db: Database, private tableName: TableName = 'company') {
+    super(db)
   }
 
   public async getCompanies(): Promise<Company[]> {
     const query = `SELECT * FROM ${this.tableName}`
     const companies = await this.all<Company, undefined>(query)
-    return companies.map((company) => mapDBObjectToJSFormat<Company>(company))
+    return removeUndefined(companies.map((company) => mapDBObjectToJSFormat<Company>(company)))
   }
 
   public async getCompanyById(id: number): Promise<Company | undefined> {
@@ -27,8 +32,9 @@ class CompanyTable extends DB {
 
   public async createCompany(payload: CreateCompanyPayload): Promise<number> {
     const dbPayload = mapJSObjectToDBFormat(payload)
-    const { keys, values } = prepareCreateProps(dbPayload)
-    const query = `INSERT INTO ${this.tableName} (${keys}) VALUES (${values});`
+    const { keys } = prepareCreateProps(dbPayload)
+    const keysNames = getSQLitifiedKeysNames(dbPayload)
+    const query = `INSERT INTO ${this.tableName} (${keys}) VALUES (${keysNames});`
     await this.run<Company, DBObject>(query, dbPayload)
     return this.lastId()
   }
@@ -61,4 +67,4 @@ class CompanyTable extends DB {
   }
 }
 
-export default new CompanyTable()
+export default new CompanyTable(connection)

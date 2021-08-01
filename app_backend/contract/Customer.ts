@@ -13,3 +13,7 @@ export interface Customer {
     bankName?: string
     createdAt: Date
 }
+
+export type CreateCustomerPayload = Omit<Customer, 'id' | 'createdAt'>
+
+export type UpdateCustomerPayload = Partial<CreateCustomerPayload>

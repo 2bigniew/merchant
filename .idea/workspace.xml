@@ -9,11 +9,13 @@
       <change afterPath="$PROJECT_DIR$/app_backend/contract/InvoicePosition.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app_backend/contract/Settings.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/company.db.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/connection.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/customer.db.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/helpers.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app_backend/test/db/account.db.spec.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app_backend/test/db/company.db.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/test/db/customer.db.spec.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app_backend/test/db/helpers.db.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_backend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/.gitignore" afterDir="false" />
@@ -56,7 +58,7 @@
       <recent name="$PROJECT_DIR$/app_backend/test/db" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.Database - Helpers.prepareCreateProps">
+  <component name="RunManager" selected="Jest.Database - Helpers">
     <configuration name="Database - Account Table" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -83,7 +85,7 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Database - Company Table.Should get all data from db - company table" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Database - Company Table.Should update company" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
@@ -93,45 +95,43 @@
       <test-file value="$PROJECT_DIR$/app_backend/test/db/company.db.spec.ts" />
       <test-names>
         <test-name value="Database - Company Table" />
-        <test-name value="Should get all data from db - company table" />
+        <test-name value="Should update company" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Database - Company Table.Should get all data from db" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Database - Customer Table" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$/app_backend" />
       <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/app_backend/test/db/company.db.spec.ts" />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/app_backend/test/db/customer.db.spec.ts" />
       <test-names>
-        <test-name value="Database - Company Table" />
-        <test-name value="Should get all data from db" />
+        <test-name value="Database - Customer Table" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Database - Helpers.prepareCreateProps" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Database - Helpers" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$/app_backend" />
       <envs />
-      <scope-kind value="TEST" />
+      <scope-kind value="SUITE" />
       <test-file value="$PROJECT_DIR$/app_backend/test/db/helpers.db.spec.ts" />
       <test-names>
         <test-name value="Database - Helpers" />
-        <test-name value="prepareCreateProps" />
       </test-names>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.Database - Helpers.prepareCreateProps" />
-        <item itemvalue="Jest.Database - Company Table.Should get all data from db - company table" />
-        <item itemvalue="Jest.Database - Company Table" />
+        <item itemvalue="Jest.Database - Helpers" />
         <item itemvalue="Jest.Database - Account Table" />
-        <item itemvalue="Jest.Database - Company Table.Should get all data from db" />
+        <item itemvalue="Jest.Database - Customer Table" />
+        <item itemvalue="Jest.Database - Company Table" />
+        <item itemvalue="Jest.Database - Company Table.Should update company" />
       </list>
     </recent_temporary>
   </component>
@@ -155,6 +155,11 @@
       <workItem from="1626676633548" duration="95000" />
       <workItem from="1627236572320" duration="1815000" />
       <workItem from="1627238400623" duration="3260000" />
+      <workItem from="1627366196487" duration="13000" />
+      <workItem from="1627496688134" duration="3352000" />
+      <workItem from="1627500274619" duration="531000" />
+      <workItem from="1627536569591" duration="541000" />
+      <workItem from="1627823635573" duration="3650000" />
     </task>
     <servers />
   </component>

@@ -1,7 +1,7 @@
 import initDB from '../../src/lib/db/init'
 import CompanyTable from '../../src/lib/db/company.db'
 import AccountTable from '../../src/lib/db/account.db'
-import { Company } from '../../contract/Company'
+import { Company, CreateCompanyPayload, UpdateCompanyPayload } from '../../contract/Company'
 
 const createCompanyData = (accountId: number): Omit<Company, 'id' | 'createdAt'>[] => [
   {
@@ -51,11 +51,11 @@ describe('Database - Company Table', () => {
   beforeAll(async () => {
     await initDB.deleteData()
     accountId = await createAccount()
-    await initDB.initTestCompanyData(accountId)
   })
 
   beforeEach(async () => {
     await initDB.initHandler()
+    await initDB.initTestCompanyData(accountId)
   })
 
   it('Should get all data from db - company table', async () => {
@@ -72,85 +72,102 @@ describe('Database - Company Table', () => {
     )
   })
 
-  // it('Should get account data by id from db', async () => {
-  //   const id = await AccountTable.lastId()
-  //   const account = await AccountTable.getAccountsById(id)
-  //
-  //   expect(account).toMatchObject(accountData[accountData.length - 1])
-  //   expect(id).toBeGreaterThan(0)
-  // })
-  //
-  // it('Should create account', async () => {
-  //   const payload = {
-  //     firstname: 'Bobby',
-  //     lastname: 'Firmino',
-  //     email: 'bobby.firmino@lfc.com',
-  //     password: 'cxzdsaeqw',
-  //   }
-  //   const id = await AccountTable.createAccount(payload)
-  //   const account = await AccountTable.getAccountsById(id)
-  //
-  //   expect(account).toMatchObject(payload)
-  //   expect(id).toBeGreaterThan(0)
-  // })
-  //
-  // it('Should update account', async () => {
-  //   const id = await AccountTable.lastId()
-  //   const account = await AccountTable.getAccountsById(id)
-  //   const payload = {
-  //     firstname: 'Virgil',
-  //     lastname: 'Van Dijk',
-  //   }
-  //   const updatedAccount = await AccountTable.updateAccount({ ...payload, id })
-  //
-  //   expect(account!.id).toBe(updatedAccount!.id)
-  //   expect(account).not.toMatchObject(updatedAccount!)
-  //   expect(updatedAccount).toMatchObject(payload)
-  // })
-  //
-  // it('Should return undefined if account to update does not exist', async () => {
-  //   const lastId = await AccountTable.lastId()
-  //   const id = lastId + 1
-  //   const account = await AccountTable.getAccountsById(id)
-  //   const payload = {
-  //     firstname: 'Virgil',
-  //     lastname: 'Van Dijk',
-  //   }
-  //   const updatedAccount = await AccountTable.updateAccount({ ...payload, id })
-  //
-  //   expect(account).toBe(undefined)
-  //   expect(updatedAccount).toBe(undefined)
-  // })
-  //
-  // it('Should delete account', async () => {
-  //   const payload = {
-  //     firstname: 'Bobby',
-  //     lastname: 'Firmino',
-  //     email: 'bobby.firmino@lfc.com',
-  //     password: 'cxzdsaeqw',
-  //   }
-  //   const id = await AccountTable.createAccount(payload)
-  //   const account = await AccountTable.getAccountsById(id)
-  //   expect(account).toMatchObject(payload)
-  //
-  //   const deletedAccount = await AccountTable.deleteAccount(account!.id)
-  //   expect(account).toMatchObject(deletedAccount!)
-  //
-  //   const accountAfterDelete = await AccountTable.getAccountsById(id)
-  //   expect(accountAfterDelete).toBe(undefined)
-  // })
-  //
-  // it('Should return undefined if account to delete does not exist', async () => {
-  //   const lastId = await AccountTable.lastId()
-  //   const id = lastId + 1
-  //   const account = await AccountTable.getAccountsById(id)
-  //   const deletedAccount = await AccountTable.deleteAccount(id)
-  //   const accountAfterDelete = await AccountTable.getAccountsById(id)
-  //
-  //   expect(account).toBe(undefined)
-  //   expect(deletedAccount).toBe(undefined)
-  //   expect(accountAfterDelete).toBe(undefined)
-  // })
+  it('Should get company data by id from db', async () => {
+    const id = await CompanyTable.lastId()
+    const company = await CompanyTable.getCompanyById(id)
+    const companyData = createCompanyData(accountId)
+    const keys = Object.keys(companyData[0])
+
+    for (const key of keys) {
+      expect(company).toHaveProperty(key)
+    }
+
+    expect(id).toBeGreaterThan(0)
+  })
+
+  it('Should create company', async () => {
+    const payload: CreateCompanyPayload = {
+      accountId,
+      name: 'Liverpool FC',
+      street: 'Anfield Road',
+      buldingNumber: '3',
+      postalCode: '123456',
+      city: 'Liverpool',
+      country: 'United Kingdom',
+      nip: '1234567890',
+      bankAccount: '123456789012345678900000',
+      bankName: 'Liverpool Bank',
+    }
+    const id = await CompanyTable.createCompany(payload)
+    const company = await CompanyTable.getCompanyById(id)
+
+    expect(company).toMatchObject(payload)
+    expect(id).toBeGreaterThan(0)
+  })
+
+  it('Should update company', async () => {
+    const id = await CompanyTable.lastId()
+    const company = await CompanyTable.getCompanyById(id)
+    const payload: UpdateCompanyPayload = {
+      id,
+      nip: '9876543210',
+      bankName: 'HSBC',
+    }
+    const updatedCompany = await CompanyTable.updateCompany({ ...payload })
+
+    expect(company!.id).toBe(updatedCompany!.id)
+    expect(company).not.toMatchObject(updatedCompany!)
+    expect(updatedCompany).toMatchObject({ ...company, ...payload })
+  })
+
+  it('Should return undefined if vompany to update does not exist', async () => {
+    const lastId = await CompanyTable.lastId()
+    const id = lastId + 1
+    const company = await CompanyTable.getCompanyById(id)
+    const payload: UpdateCompanyPayload = {
+      id,
+      nip: '9876543210',
+      bankName: 'HSBC',
+    }
+    const updatedCompany = await CompanyTable.updateCompany({ ...payload })
+
+    expect(company).toBe(undefined)
+    expect(updatedCompany).toBe(undefined)
+  })
+
+  it('Should delete company', async () => {
+    const payload: CreateCompanyPayload = {
+      accountId,
+      name: 'Liverpool FC',
+      street: 'Anfield Road',
+      buldingNumber: '3',
+      postalCode: '123456',
+      city: 'Liverpool',
+      country: 'United Kingdom',
+      nip: '1234567890',
+      bankAccount: '123456789012345678900000',
+      bankName: 'Liverpool Bank',
+    }
+    const id = await CompanyTable.createCompany(payload)
+    const company = await CompanyTable.getCompanyById(id)
+    expect(company).toMatchObject(payload)
+
+    const deletedAccount = await CompanyTable.deleteCompany(company!.id)
+    expect(company).toMatchObject(deletedAccount!)
+
+    const accountAfterDelete = await AccountTable.getAccountsById(id)
+    expect(accountAfterDelete).toBe(undefined)
+  })
+
+  it('Should return undefined if company to delete does not exist', async () => {
+    const lastId = await CompanyTable.lastId()
+    const id = lastId + 1
+    const company = await CompanyTable.getCompanyById(id)
+    const deletedAccount = await CompanyTable.getCompanyById(id)
+
+    expect(company).toBe(undefined)
+    expect(deletedAccount).toBe(undefined)
+  })
 
   afterEach(async () => {
     await initDB.deleteData()

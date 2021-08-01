@@ -40,6 +40,17 @@ export const SQLitiffy = <T>(payload: T | undefined): Record<string, string> | u
   return sqliteObject
 }
 
+export const getSQLitifiedKeysNames = <T>(payload: T | undefined): string => {
+  if (!payload) {
+    return ''
+  }
+  const sqliteKeys = []
+  for (const key of Object.keys(payload)) {
+    sqliteKeys.push(`$${key}`)
+  }
+  return sqliteKeys.join(', ')
+}
+
 export const mapJSObjectToDBFormat = <T>(obj: T): DBObject => {
   const dbObject: Record<string, any> = {}
   for (const key of Object.keys(obj)) {
@@ -49,7 +60,11 @@ export const mapJSObjectToDBFormat = <T>(obj: T): DBObject => {
   return dbObject
 }
 
-export const mapDBObjectToJSFormat = <T>(obj: DBObject): T => {
+export const mapDBObjectToJSFormat = <T>(obj: DBObject | undefined): T | undefined => {
+  if (!obj) {
+    return
+  }
+
   const object: { [prop: string]: any } = {}
   for (const key of Object.keys(obj)) {
     const jsKey = camelCase(key)
@@ -57,3 +72,6 @@ export const mapDBObjectToJSFormat = <T>(obj: DBObject): T => {
   }
   return object as T
 }
+
+export const removeUndefined = <T>(arr: Array<T | undefined>): T[] =>
+  arr.filter((el) => !!el) as T[]
