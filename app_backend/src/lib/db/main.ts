@@ -58,4 +58,3 @@ export abstract class DB {
     })
   }
 }
-

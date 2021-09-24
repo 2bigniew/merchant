@@ -28,6 +28,34 @@ export const prepareUpdateProps = <T>(payload: T): string => {
   return pairs.join(', ')
 }
 
+export type WhereSeparator = 'AND' | 'OR'
+export type WhereCondition = '=' | 'LIKE' | 'IN' | 'IS' | '<' | '>' | '>=' | '<='
+export type WhereDateCondition = 'GT' | 'GTE' | 'LT' | 'LTE'
+export type WhereDate = { date: Date; dateCondition: WhereDateCondition }
+export type WhereSource =
+  | string
+  | number
+  | boolean
+  | Array<string>
+  | Array<number>
+  | undefined
+  | null
+  | WhereDate
+
+export type WhereValue = string | number | boolean | Array<string> | Array<number> | null | Date
+export type WhereObject = {
+  field: string
+  condition: WhereCondition
+  value: WhereValue
+}
+
+const dateConditionMapper: Record<WhereDateCondition, WhereCondition> = {
+  GT: '>',
+  GTE: '>=',
+  LT: '<',
+  LTE: '<=',
+}
+
 export const SQLitiffy = <T>(payload: T | undefined): Record<string, string> | undefined => {
   if (!payload) {
     return
@@ -71,6 +99,80 @@ export const mapDBObjectToJSFormat = <T>(obj: DBObject | undefined): T | undefin
     object[jsKey] = obj[key]
   }
   return object as T
+}
+
+export const prepareConditions = (
+  obj: Record<string, WhereSource>,
+  separator: WhereSeparator = 'AND',
+): string => {
+  const where: WhereObject[] = []
+  const dbObj: Record<string, WhereSource> = mapJSObjectToDBFormat(obj)
+  for (const key in dbObj) {
+    if (typeof dbObj[key] === 'undefined') {
+      continue
+    }
+
+    if (typeof dbObj[key] === 'string') {
+      where.push({
+        field: key,
+        condition: 'LIKE',
+        value: `'%${dbObj[key]}%'`,
+      })
+    }
+
+    if (typeof dbObj[key] === 'number') {
+      where.push({
+        field: key,
+        condition: '=',
+        value: dbObj[key] as number,
+      })
+    }
+
+    if (typeof dbObj[key] === 'object' && dbObj[key] instanceof Array) {
+      const values: Array<string | number> = dbObj[key] as Array<string> | Array<number>
+      where.push({
+        field: key,
+        condition: 'IN',
+        value: `(${values
+          .map((value) => (typeof value === 'string' ? `'${value}'` : value))
+          .join(', ')})`,
+      })
+    }
+
+    if (dbObj[key] === null) {
+      where.push({
+        field: key,
+        condition: 'IS',
+        value: 'NULL',
+      })
+    }
+
+    if (typeof dbObj[key] === 'boolean') {
+      where.push({
+        field: key,
+        condition: 'IS',
+        value: dbObj[key] ? 'TRUE' : 'FALSE',
+      })
+    }
+
+    // TODO fix after adding luxon
+    // if (
+    //   typeof dbObj[key] === 'object' &&
+    //   dbObj[key] !== null &&
+    //   'date' in (dbObj[key] as Record<string, unknown>) &&
+    //   'dateCondition' in (dbObj[key] as Record<string, unknown>)
+    // ) {
+    //   const value = dbObj[key] as WhereDate
+    //   where.push({
+    //     field: key,
+    //     condition: dateConditionMapper[value.dateCondition],
+    //     value: `'${value.date}'::date`,
+    //   })
+    // }
+  }
+
+  const conditions = where.map((w) => `${w.field} ${w.condition} ${w.value}`).join(` ${separator} `)
+  return conditions.length > 0 ? `WHERE ${conditions}` : ''
 }
 
 export const removeUndefined = <T>(arr: Array<T | undefined>): T[] =>

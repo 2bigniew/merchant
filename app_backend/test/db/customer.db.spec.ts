@@ -1,61 +1,24 @@
 import initDB from '../../src/lib/db/init'
 import CustomerTable from '../../src/lib/db/customer.db'
 import AccountTable from '../../src/lib/db/account.db'
-import { CreateCompanyPayload, UpdateCompanyPayload } from '../../contract/Company'
-import { Customer } from '../../contract/Customer'
-
-const createCustomersData = (accountId: number): Omit<Customer, 'id' | 'createdAt'>[] => [
-  {
-    accountId,
-    name: 'Otcom',
-    street: 'Hallows',
-    buldingNumber: '9',
-    locality: '1',
-    postalCode: '18-500',
-    city: 'Kolno',
-    country: 'Poland',
-    nip: '1789442890',
-    bankAccount: '32168545031438073902',
-    bankName: 'Stim Bank',
-  },
-  {
-    accountId,
-    name: 'Namfix',
-    street: 'Redwing',
-    buldingNumber: '03',
-    locality: '5',
-    postalCode: '90-360',
-    city: 'Zbytków',
-    country: 'Poland',
-    nip: '5983075519',
-    bankAccount: '44422159652897351161',
-    bankName: 'Flowdesk Bank',
-  },
-  {
-    accountId,
-    name: 'Transcof',
-    street: 'Montana',
-    buldingNumber: '206',
-    locality: '102',
-    postalCode: '38-123',
-    city: 'Wysoka Strzyżowska',
-    country: 'Poland',
-    nip: '7195596289',
-    bankAccount: '65693911804359744968',
-    bankName: 'Hatity Bank',
-  },
-]
+import { UpdateCompanyPayload } from '../../contract/Company'
+import { Customer, UpdateCustomerPayload } from '../../contract/Customer'
+import {
+  createCustomersData,
+  prepareCreateAccountPayload,
+  prepareCreateCustomerPayload,
+} from '../lib/fixtures'
 
 describe('Database - Customer Table', () => {
   let accountId = 1
 
   beforeAll(async () => {
+    await initDB.initHandler()
     await initDB.deleteData()
     accountId = await createAccount()
   })
 
   beforeEach(async () => {
-    await initDB.initHandler()
     await initDB.initTestCustomerData(accountId)
   })
 
@@ -87,18 +50,7 @@ describe('Database - Customer Table', () => {
   })
 
   it('Should create customer', async () => {
-    const payload: CreateCompanyPayload = {
-      accountId,
-      name: 'Liverpool FC',
-      street: 'Anfield Road',
-      buldingNumber: '3',
-      postalCode: '123456',
-      city: 'Liverpool',
-      country: 'United Kingdom',
-      nip: '1234567890',
-      bankAccount: '123456789012345678900000',
-      bankName: 'Liverpool Bank',
-    }
+    const payload = prepareCreateCustomerPayload(accountId)
     const id = await CustomerTable.createCustomer(payload)
     const customer = await CustomerTable.getCustomerById(id)
 
@@ -125,7 +77,7 @@ describe('Database - Customer Table', () => {
     const lastId = await CustomerTable.lastId()
     const id = lastId + 1
     const customer = await CustomerTable.getCustomerById(id)
-    const payload: UpdateCompanyPayload = {
+    const payload: UpdateCustomerPayload = {
       id,
       nip: '9876543210',
       bankName: 'HSBC',
@@ -137,18 +89,7 @@ describe('Database - Customer Table', () => {
   })
 
   it('Should delete customer', async () => {
-    const payload: CreateCompanyPayload = {
-      accountId,
-      name: 'Liverpool FC',
-      street: 'Anfield Road',
-      buldingNumber: '3',
-      postalCode: '123456',
-      city: 'Liverpool',
-      country: 'United Kingdom',
-      nip: '1234567890',
-      bankAccount: '123456789012345678900000',
-      bankName: 'Liverpool Bank',
-    }
+    const payload = prepareCreateCustomerPayload(accountId)
     const id = await CustomerTable.createCustomer(payload)
     const customer = await CustomerTable.getCustomerById(id)
     expect(customer).toMatchObject(payload)
@@ -176,11 +117,6 @@ describe('Database - Customer Table', () => {
 })
 
 const createAccount = async (): Promise<number> => {
-  const payload = {
-    firstname: 'Bobby',
-    lastname: 'Firmino',
-    email: 'bobby.firmino@lfc.com',
-    password: 'cxzdsaeqw',
-  }
+  const payload = prepareCreateAccountPayload()
   return AccountTable.createAccount(payload)
 }
