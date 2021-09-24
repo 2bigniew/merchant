@@ -1,4 +1,5 @@
 import {Currency} from "./index";
+import {InvoicePosition} from "./InvoicePosition";
 
 export interface Invoice {
     id: number
@@ -9,9 +10,21 @@ export interface Invoice {
     price: number
     vat: number
     currency: Currency
-    paymentDay: Date
+    invoiceDate: string // TEXT as ISO8601 strings ("YYYY-MM-DD HH:MM:SS.SSS")
+    paymentDate: string // TEXT as ISO8601 strings ("YYYY-MM-DD HH:MM:SS.SSS")
     paymentPeriod?: string
-    servicePeriod?: string
+    servicePeriod?: string // when service has been provided
     author?: string
     createdAt: Date
+    // status
+}
+
+export type PublicInvoice = Invoice & {
+    postitions: InvoicePosition[]
+}
+
+export type CreateInvoicePayload = Omit<Invoice, 'id' | 'createdAt'>
+
+export type UpdateInvoicePayload = Partial<CreateInvoicePayload> & {
+    id: number
 }

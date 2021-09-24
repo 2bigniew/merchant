@@ -14,4 +14,9 @@ export interface InvoicePosition {
     totalValueNet: number
     totalValue: number
     currency: Currency
+    createdAt: Date
 }
+
+export type CreateInvoicePositionPayload = Omit<InvoicePosition, 'id' | 'createdAt'>
+
+export type UpdateInvoicePositionPayload = Partial<CreateInvoicePositionPayload> & { id: number }

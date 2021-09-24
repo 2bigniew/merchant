@@ -10,8 +10,8 @@ import {
   prepareUpdateProps,
   removeUndefined,
 } from './helpers'
-import {Database} from "sqlite3";
-import connection from "./connection";
+import { Database } from 'sqlite3'
+import connection from './connection'
 
 class CustomerTable extends DB {
   constructor(db: Database, private tableName: TableName = 'customer') {

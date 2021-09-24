@@ -12,10 +12,15 @@
       <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/connection.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/customer.db.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/helpers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/invoice.db.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/invoicePositions.db.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app_backend/test/db/account.db.spec.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app_backend/test/db/company.db.spec.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app_backend/test/db/customer.db.spec.ts" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/app_backend/test/db/helpers.db.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/test/db/invoice.db.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/test/db/invoicePositions.db.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app_backend/test/lib/fixtures.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_backend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/.env" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app_backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/.gitignore" afterDir="false" />
@@ -57,81 +62,88 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app_backend/test/db" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/app_backend/test/lib" />
+    </key>
   </component>
-  <component name="RunManager" selected="Jest.Database - Helpers">
-    <configuration name="Database - Account Table" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/app_backend" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/app_backend/test/db/account.db.spec.ts" />
-      <test-names>
-        <test-name value="Database - Account Table" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Database - Company Table" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/app_backend" />
-      <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/app_backend/test/db/company.db.spec.ts" />
-      <test-names>
-        <test-name value="Database - Company Table" />
-      </test-names>
-      <method v="2" />
-    </configuration>
-    <configuration name="Database - Company Table.Should update company" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.Database - InvoicePosition Table.Should return undefined id invoice position to delete does not exist">
+    <configuration name="Database - InvoicePosition Table.Should create invoice position" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$/app_backend" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/app_backend/test/db/company.db.spec.ts" />
+      <test-file value="$PROJECT_DIR$/app_backend/test/db/invoicePositions.db.spec.ts" />
       <test-names>
-        <test-name value="Database - Company Table" />
-        <test-name value="Should update company" />
+        <test-name value="Database - InvoicePosition Table" />
+        <test-name value="Should create invoice position" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Database - Customer Table" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Database - InvoicePosition Table.Should delete invoice position" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$/app_backend" />
       <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/app_backend/test/db/customer.db.spec.ts" />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/app_backend/test/db/invoicePositions.db.spec.ts" />
       <test-names>
-        <test-name value="Database - Customer Table" />
+        <test-name value="Database - InvoicePosition Table" />
+        <test-name value="Should delete invoice position" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Database - Helpers" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Database - InvoicePosition Table.Should return undefined id invoice position to delete does not exist" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
       <working-dir value="$PROJECT_DIR$/app_backend" />
       <envs />
-      <scope-kind value="SUITE" />
-      <test-file value="$PROJECT_DIR$/app_backend/test/db/helpers.db.spec.ts" />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/app_backend/test/db/invoicePositions.db.spec.ts" />
       <test-names>
-        <test-name value="Database - Helpers" />
+        <test-name value="Database - InvoicePosition Table" />
+        <test-name value="Should return undefined id invoice position to delete does not exist" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Database - InvoicePosition Table.Should return undefined id invoice position to update does not exist" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/app_backend" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/app_backend/test/db/invoicePositions.db.spec.ts" />
+      <test-names>
+        <test-name value="Database - InvoicePosition Table" />
+        <test-name value="Should return undefined id invoice position to update does not exist" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Database - InvoicePosition Table.Should update invoice position" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/app_backend" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/app_backend/test/db/invoicePositions.db.spec.ts" />
+      <test-names>
+        <test-name value="Database - InvoicePosition Table" />
+        <test-name value="Should update invoice position" />
       </test-names>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.Database - Helpers" />
-        <item itemvalue="Jest.Database - Account Table" />
-        <item itemvalue="Jest.Database - Customer Table" />
-        <item itemvalue="Jest.Database - Company Table" />
-        <item itemvalue="Jest.Database - Company Table.Should update company" />
+        <item itemvalue="Jest.Database - InvoicePosition Table.Should return undefined id invoice position to delete does not exist" />
+        <item itemvalue="Jest.Database - InvoicePosition Table.Should delete invoice position" />
+        <item itemvalue="Jest.Database - InvoicePosition Table.Should return undefined id invoice position to update does not exist" />
+        <item itemvalue="Jest.Database - InvoicePosition Table.Should update invoice position" />
+        <item itemvalue="Jest.Database - InvoicePosition Table.Should create invoice position" />
       </list>
     </recent_temporary>
   </component>
@@ -159,7 +171,19 @@
       <workItem from="1627496688134" duration="3352000" />
       <workItem from="1627500274619" duration="531000" />
       <workItem from="1627536569591" duration="541000" />
-      <workItem from="1627823635573" duration="3650000" />
+      <workItem from="1627823635573" duration="14268000" />
+      <workItem from="1627884664002" duration="25000" />
+      <workItem from="1628436906518" duration="8305000" />
+      <workItem from="1628490822280" duration="9000" />
+      <workItem from="1629027229402" duration="1224000" />
+      <workItem from="1629093848997" duration="22000" />
+      <workItem from="1629319301571" duration="3479000" />
+      <workItem from="1629355499466" duration="18000" />
+      <workItem from="1632317015264" duration="9521000" />
+      <workItem from="1632384994056" duration="892000" />
+      <workItem from="1632398343386" duration="1935000" />
+      <workItem from="1632423210409" duration="3777000" />
+      <workItem from="1632477517907" duration="6671000" />
     </task>
     <servers />
   </component>

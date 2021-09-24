@@ -8,4 +8,4 @@ export type TableName =
     | 'settings'
     | 'customer'
     | 'invoice'
-    | 'invoice_positions'
+    | 'invoice_position'

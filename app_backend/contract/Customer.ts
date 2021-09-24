@@ -16,4 +16,4 @@ export interface Customer {
 
 export type CreateCustomerPayload = Omit<Customer, 'id' | 'createdAt'>
 
-export type UpdateCustomerPayload = Partial<CreateCustomerPayload>
+export type UpdateCustomerPayload = Partial<Customer>

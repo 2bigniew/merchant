@@ -1,5 +1,6 @@
 import initDB from '../../src/lib/db/init'
 import AccountTable from '../../src/lib/db/account.db'
+import { prepareCreateAccountPayload } from '../lib/fixtures'
 
 const accountData = [
   {
@@ -50,12 +51,7 @@ describe('Database - Account Table', () => {
   })
 
   it('Should create account', async () => {
-    const payload = {
-      firstname: 'Bobby',
-      lastname: 'Firmino',
-      email: 'bobby.firmino@lfc.com',
-      password: 'cxzdsaeqw',
-    }
+    const payload = prepareCreateAccountPayload()
     const id = await AccountTable.createAccount(payload)
     const account = await AccountTable.getAccountsById(id)
 
@@ -92,12 +88,7 @@ describe('Database - Account Table', () => {
   })
 
   it('Should delete account', async () => {
-    const payload = {
-      firstname: 'Bobby',
-      lastname: 'Firmino',
-      email: 'bobby.firmino@lfc.com',
-      password: 'cxzdsaeqw',
-    }
+    const payload = prepareCreateAccountPayload()
     const id = await AccountTable.createAccount(payload)
     const account = await AccountTable.getAccountsById(id)
     expect(account).toMatchObject(payload)
