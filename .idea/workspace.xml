@@ -2,34 +2,50 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b6e0dde-f703-4299-9ecf-c296df678b93" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app_backend/contract/Account.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/contract/Company.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/contract/Customer.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/contract/Invoice.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/contract/InvoicePosition.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/contract/Settings.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/company.db.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/connection.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/customer.db.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/helpers.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/invoice.db.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/src/lib/db/invoicePositions.db.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/test/db/account.db.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/test/db/company.db.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/test/db/customer.db.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/test/db/helpers.db.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/test/db/invoice.db.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/test/db/invoicePositions.db.spec.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app_backend/test/lib/fixtures.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/lib/fixtures.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_backend/.env" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_backend/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_backend/contract/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/contract/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_backend/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_backend/src/lib/db/init.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/src/lib/db/init.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_backend/src/lib/db/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/src/lib/db/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_backend/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app_backend/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/app_backend/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/.eslintrc.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/.prettierignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/.prettierrc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/contract/Account.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/contract/Company.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/contract/Customer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/contract/Invoice.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/contract/InvoicePosition.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/contract/Settings.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/contract/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/nest-cli.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/app.controller.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/app.controller.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/app.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/app.service.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/customer/customer.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/lib/db/account.db.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/lib/db/company.db.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/lib/db/connection.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/lib/db/customer.db.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/lib/db/helpers.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/lib/db/init.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/lib/db/invoice.db.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/lib/db/invoicePositions.db.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/lib/db/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/main.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/src/user/user.module.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/test/app.e2e-spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/test/db/account.db.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/test/db/company.db.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/test/db/customer.db.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/test/db/helpers.db.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/test/db/invoice.db.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/test/db/invoicePositions.db.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/test/jest-e2e.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/test/lib/fixtures.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/tsconfig.build.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app_backend/yarn.lock" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,7 +53,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/app_backend" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1uDoXBr1Y7F4ggSl7BK32ULRtbC" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -55,7 +71,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/app_backend/node_modules/jest" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/app_backend/node_modules/typescript/lib" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/server/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -63,6 +79,7 @@
       <recent name="$PROJECT_DIR$/app_backend/test/db" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/contract" />
       <recent name="$PROJECT_DIR$/app_backend/test/lib" />
     </key>
   </component>
@@ -184,6 +201,16 @@
       <workItem from="1632398343386" duration="1935000" />
       <workItem from="1632423210409" duration="3777000" />
       <workItem from="1632477517907" duration="6671000" />
+      <workItem from="1632491400517" duration="28000" />
+      <workItem from="1632723723911" duration="209000" />
+      <workItem from="1632738195044" duration="719000" />
+      <workItem from="1633442307796" duration="147000" />
+      <workItem from="1633870156915" duration="9197000" />
+      <workItem from="1633934821701" duration="39000" />
+      <workItem from="1634151155221" duration="842000" />
+      <workItem from="1634196150820" duration="16000" />
+      <workItem from="1634843396453" duration="2395000" />
+      <workItem from="1635264049609" duration="10069000" />
     </task>
     <servers />
   </component>

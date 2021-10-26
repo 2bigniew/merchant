@@ -1,0 +1,7 @@
+{
+  "name": "gateway",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "2bigniew",
+  "license": "MIT"
+}
