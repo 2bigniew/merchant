@@ -12,7 +12,7 @@ import {
 } from './helpers'
 import connection from './connection'
 
-class InvoiceTable extends DB {
+export class InvoiceTable extends DB {
   constructor(db: Database, private tableName: TableName = 'invoice') {
     super(db)
   }

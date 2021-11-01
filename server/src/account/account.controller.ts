@@ -1,18 +1,18 @@
 import { Controller, Get, Param } from '@nestjs/common'
 import { Account } from '../../../contract/Account'
-import AccountTable from '../lib/db/account.db'
+import { RepositoryService } from '../services/repository/repository.service'
 
 @Controller('/account')
 export class AccountController {
+  constructor(private repository: RepositoryService) {}
 
   @Get('/list')
   getAccountsList(): Promise<Account[]> {
-    return AccountTable.getAccounts()
+    return this.repository.account.getAccounts()
   }
 
   @Get('/id/:accountId')
   getAccountObs(@Param('accountId') accountId: number): Promise<Account | undefined> {
-    return AccountTable.getAccountsById(accountId)
+    return this.repository.account.getAccountsById(accountId)
   }
-
 }

@@ -19,6 +19,7 @@ export interface Invoice {
     // status
 }
 
+
 export type PublicInvoice = Invoice & {
     postitions: InvoicePosition[]
 }

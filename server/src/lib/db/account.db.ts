@@ -5,7 +5,7 @@ import { prepareUpdateProps } from './helpers'
 import { TableName } from '../../../../contract/general'
 import connection from './connection'
 
-class AccountTable extends DB {
+export class AccountTable extends DB {
   constructor(db: Database, private tableName: TableName = 'account') {
     super(db)
   }

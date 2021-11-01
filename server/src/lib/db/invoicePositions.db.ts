@@ -18,7 +18,7 @@ import {
 } from '../../../../contract/InvoicePosition'
 import connection from './connection'
 
-class InvoicePositionsTable extends DB {
+export class InvoicePositionsTable extends DB {
   constructor(db: Database, private tableName: TableName = 'invoice_position') {
     super(db)
   }

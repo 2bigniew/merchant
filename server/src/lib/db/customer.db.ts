@@ -1,6 +1,10 @@
 import { DB } from './main'
 import { DBObject, TableName } from '../../../../contract/general'
-import { CreateCustomerPayload, Customer, UpdateCustomerPayload } from '../../../../contract/Customer'
+import {
+  CreateCustomerPayload,
+  Customer,
+  UpdateCustomerPayload,
+} from '../../../../contract/Customer'
 import { Company } from '../../../../contract/Company'
 import {
   getSQLitifiedKeysNames,
@@ -13,7 +17,7 @@ import {
 import { Database } from 'sqlite3'
 import connection from './connection'
 
-class CustomerTable extends DB {
+export class CustomerTable extends DB {
   constructor(db: Database, private tableName: TableName = 'customer') {
     super(db)
   }

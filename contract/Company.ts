@@ -14,6 +14,7 @@ export interface Company {
     createdAt: Date
 }
 
+
 export type CreateCompanyPayload = Omit<Company, 'id' | 'createdAt'>
 
 export type UpdateCompanyPayload = Partial<CreateCompanyPayload> & { id: number }

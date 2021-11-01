@@ -8,12 +8,11 @@ import {
   prepareCreateProps,
   prepareUpdateProps,
   removeUndefined,
-  SQLitiffy,
 } from './helpers'
 import { Database } from 'sqlite3'
 import connection from './connection'
 
-class CompanyTable extends DB {
+export class CompanyTable extends DB {
   constructor(db: Database, private tableName: TableName = 'company') {
     super(db)
   }
