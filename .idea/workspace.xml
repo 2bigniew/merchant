@@ -2,31 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b6e0dde-f703-4299-9ecf-c296df678b93" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/contract/Command.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/contract/Event.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/lib/validation/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/accountSchema.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/companySchema.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/customerSchema.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/index.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/invoiceSchema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/invoicePositionSchema.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contract/Account.ts" beforeDir="false" afterPath="$PROJECT_DIR$/contract/Account.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contract/Command.ts" beforeDir="false" afterPath="$PROJECT_DIR$/contract/Command.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contract/Company.ts" beforeDir="false" afterPath="$PROJECT_DIR$/contract/Company.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract/general.ts" beforeDir="false" afterPath="$PROJECT_DIR$/contract/general.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/front/yarn.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/account/account.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/account/account.controller.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/lib/db/account.db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/db/account.db.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/lib/db/company.db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/db/company.db.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/lib/db/customer.db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/db/customer.db.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/lib/db/invoice.db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/db/invoice.db.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/lib/db/invoicePositions.db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/db/invoicePositions.db.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/lib/fixtures.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/fixtures.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contract/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/contract/Event.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/lib/validation/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/accountSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/accountSchema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/companySchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/companySchema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/customerSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/customerSchema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/invoiceSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/invoiceSchema.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/event/event.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/event/event.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -199,7 +188,9 @@
       <workItem from="1635359148872" duration="243000" />
       <workItem from="1635692720291" duration="3511000" />
       <workItem from="1635760156574" duration="7986000" />
-      <workItem from="1635796286526" duration="414000" />
+      <workItem from="1635796286526" duration="1638000" />
+      <workItem from="1636285230416" duration="7971000" />
+      <workItem from="1636313117415" duration="2240000" />
     </task>
     <servers />
   </component>

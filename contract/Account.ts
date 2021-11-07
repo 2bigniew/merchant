@@ -24,4 +24,5 @@ export interface AccountRouter {
 
 }
 
+
 export type AccountPaths = keyof AccountRouter

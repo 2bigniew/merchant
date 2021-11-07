@@ -4,6 +4,8 @@ import {CreateCustomerPayload, UpdateCustomerPayload} from "./Customer";
 import {CreateInvoicePayload, UpdateInvoicePayload} from "./Invoice";
 import {CreateInvoicePositionPayload, UpdateInvoicePositionPayload} from "./InvoicePosition";
 
+export const COMMAND = 'command' as const
+
 export const COMMANDS_NAMES = [
     'command.account.create',
     'command.account.update',
@@ -23,6 +25,8 @@ export const COMMANDS_NAMES = [
 ] as const
 
 export type CommandsNames = typeof COMMANDS_NAMES[number]
+
+export type CommandsFailuresNames = `${CommandsNames}.failed`
 
 type CommandBase<N extends CommandsNames, P> = { name: N; payload: P }
 

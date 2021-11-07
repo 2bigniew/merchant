@@ -1,5 +1,6 @@
 import Joi from 'joi'
-import { idSchema, SchemasToCommand } from './index'
+import {dbObjectWrapperSchema, idSchema, SchemasToCommand} from './index'
+import {createInvoiceSchema} from "./invoiceSchema";
 
 export const createAccountSchema = Joi.object({
   firstname: Joi.string().min(2).max(50).required(),
@@ -16,10 +17,18 @@ export const updateAccountSchema = Joi.object({
   email: Joi.string().email().required(),
 }).required()
 
+export const accountSchema = createAccountSchema.append(dbObjectWrapperSchema)
+
 export const deleteAccountSchema = Joi.object({ id: idSchema.required() }).required()
 
-export const accountSchemasToCommandMap: Partial<SchemasToCommand> = {
+export const accountSchemasToCommandMap = {
   'command.account.create': createAccountSchema,
   'command.account.update': updateAccountSchema,
   'command.account.delete': deleteAccountSchema,
+}
+
+export const accountSchemasToEventMap = {
+     'event.account.created': {after: accountSchema},
+     'event.account.updated': {before: accountSchema, after: accountSchema},
+     'event.account.deleted': {before: accountSchema}
 }

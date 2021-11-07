@@ -1,3 +1,4 @@
+
 export interface Company {
     id: number
     accountId: number
