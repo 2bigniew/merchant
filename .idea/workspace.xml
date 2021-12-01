@@ -2,20 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b6e0dde-f703-4299-9ecf-c296df678b93" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/invoicePositionSchema.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/account/account.listener.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/mappings.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract/Account.ts" beforeDir="false" afterPath="$PROJECT_DIR$/contract/Account.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/contract/Command.ts" beforeDir="false" afterPath="$PROJECT_DIR$/contract/Command.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract/Company.ts" beforeDir="false" afterPath="$PROJECT_DIR$/contract/Company.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/contract/Event.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/core/socket.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/core/socket.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/login-panel/login-panel.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/login-panel/login-panel.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/login-panel/login-panel.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/login-panel/login-panel.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/login-panel/login-panel.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/login-panel/login-panel.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/account/account.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/account/account.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/lib/db/account.db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/db/account.db.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/lib/validation/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/index.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/accountSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/accountSchema.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/companySchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/companySchema.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/customerSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/customerSchema.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/invoicePositionSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/invoicePositionSchema.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/invoiceSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/invoiceSchema.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/services/event/event.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/event/event.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,13 +44,14 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/server/src/lib/validation/schemas" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/app_backend/node_modules/jest" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="ts.external.directory.path" value="$PROJECT_DIR$/server/node_modules/typescript/lib" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="ts.external.directory.path" value="$PROJECT_DIR$/front/node_modules/typescript/lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -191,6 +201,10 @@
       <workItem from="1635796286526" duration="1638000" />
       <workItem from="1636285230416" duration="7971000" />
       <workItem from="1636313117415" duration="2240000" />
+      <workItem from="1637616498695" duration="2094000" />
+      <workItem from="1637681865798" duration="7822000" />
+      <workItem from="1638202027151" duration="9417000" />
+      <workItem from="1638298785308" duration="4856000" />
     </task>
     <servers />
   </component>

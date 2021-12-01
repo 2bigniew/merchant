@@ -1,7 +1,7 @@
 import { Database } from 'sqlite3'
 import { DB } from './main'
 import { Account, CreateAccountPayload, UpdateAccountPayload } from '../../../../contract/Account'
-import { prepareUpdateProps } from './helpers'
+import {mapDBObjectToJSFormat, prepareUpdateProps, removeUndefined} from './helpers'
 import { TableName } from '../../../../contract/general'
 import connection from './connection'
 
@@ -12,12 +12,14 @@ export class AccountTable extends DB {
 
   public async getAccounts(): Promise<Account[]> {
     const query = `SELECT * FROM ${this.tableName}`
-    return await this.all<Account, undefined>(query)
+    const accounts = await this.all<Account, undefined>(query)
+    return removeUndefined(accounts.map((account) => mapDBObjectToJSFormat<Account>(account)))
   }
 
   public async getAccountsById(id: number): Promise<Account | undefined> {
     const query = `SELECT * FROM ${this.tableName} WHERE id = $id LIMIT 1`
-    return await this.get<Account, { id: number }>(query, { id })
+    const account = await this.get<Account, { id: number }>(query, { id })
+    return mapDBObjectToJSFormat(account)
   }
 
   public async createAccount(payload: CreateAccountPayload): Promise<number> {

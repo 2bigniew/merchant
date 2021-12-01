@@ -1,5 +1,5 @@
-import Joi from 'joi'
-import {currencySchema, dbObjectWrapperSchema, idSchema, SchemasToCommand} from './index'
+import * as Joi from 'joi'
+import { currencySchema, dbObjectWrapperSchema, idSchema } from './index'
 
 export const createInvoicePositionSchema = Joi.object({
   invoiceId: idSchema.required(),
@@ -36,7 +36,7 @@ export const deleteInvoicePositionSchema = Joi.object({
   id: idSchema.required(),
 })
 
-export const invoicePositionSchema = createInvoicePositionSchema.append(dbObjectWrapperSchema)
+export const invoicePositionSchema = createInvoicePositionSchema.concat(dbObjectWrapperSchema)
 
 export const invoicePositionSchemasToCommandMap = {
   'command.invoicePosition.create': createInvoicePositionSchema,
@@ -45,7 +45,7 @@ export const invoicePositionSchemasToCommandMap = {
 }
 
 export const invoicePositionSchemasToEventMap = {
-  'event.invoicePosition.created': {after: invoicePositionSchema},
-  'event.invoicePosition.updated': {before: invoicePositionSchema, after: invoicePositionSchema},
-  'event.invoicePosition.deleted': {before: invoicePositionSchema},
+  'event.invoicePosition.created': { after: invoicePositionSchema },
+  'event.invoicePosition.updated': { before: invoicePositionSchema, after: invoicePositionSchema },
+  'event.invoicePosition.deleted': { before: invoicePositionSchema },
 }

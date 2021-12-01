@@ -14,11 +14,5 @@ export class AppComponent implements OnInit{
 
   ngOnInit() {
     this.title = 'Looool'
-    const command: Command = {
-      type: 'command'
-      name: 'merchant.account.create',
-      payload: { name: 'Bobby', lastname: 'Firmino' }
-    }
-    this.socketService.sendCommand(command)
   }
 }

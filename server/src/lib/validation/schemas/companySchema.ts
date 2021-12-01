@@ -1,6 +1,5 @@
-import Joi from 'joi'
-import {dbObjectWrapperSchema, idSchema, SchemasToCommand} from './index'
-import {createInvoiceSchema} from "./invoiceSchema";
+import * as Joi from 'joi'
+import { dbObjectWrapperSchema, idSchema } from './index'
 
 export const createCompanySchema = Joi.object({
   accountId: idSchema.required(),
@@ -35,7 +34,7 @@ export const deleteCompanySchema = Joi.object({
   id: idSchema.required(),
 })
 
-export const companySchema = createCompanySchema.append(dbObjectWrapperSchema)
+export const companySchema = createCompanySchema.concat(dbObjectWrapperSchema)
 
 export const companySchemasToCommandMap = {
   'command.company.create': createCompanySchema,
@@ -44,7 +43,7 @@ export const companySchemasToCommandMap = {
 }
 
 export const companySchemasToEventMap = {
-  'event.company.created': {after: companySchema},
-  'event.company.updated': {before: companySchema, after: companySchema},
-  'event.company.deleted': {after: companySchema},
+  'event.company.created': { after: companySchema },
+  'event.company.updated': { before: companySchema, after: companySchema },
+  'event.company.deleted': { after: companySchema },
 }

@@ -3,8 +3,10 @@ import {CreateCompanyPayload, UpdateCompanyPayload} from "./Company";
 import {CreateCustomerPayload, UpdateCustomerPayload} from "./Customer";
 import {CreateInvoicePayload, UpdateInvoicePayload} from "./Invoice";
 import {CreateInvoicePositionPayload, UpdateInvoicePositionPayload} from "./InvoicePosition";
+import {EventsNames} from "./Event";
 
 export const COMMAND = 'command' as const
+export const COMMAND_FAILURE = 'command.failure' as const
 
 export const COMMANDS_NAMES = [
     'command.account.create',
@@ -77,3 +79,75 @@ export type Command = { type: 'command'} & (
     | CommandInvoicePositionUpdate
     | CommandInvoicePositionDelete
     )
+
+export type CommandFailure = {
+ type: typeof COMMAND_FAILURE,
+ name: CommandsFailuresNames,
+ payload: any
+}
+
+export const COMMANDS_TO_EVENTS: Record<
+    CommandsNames,
+    { success: EventsNames; failure: CommandsFailuresNames }
+    > = {
+ 'command.account.create': {
+  success: 'event.account.created',
+  failure: 'command.account.create.failed',
+ },
+ 'command.account.update': {
+  success: 'event.account.updated',
+  failure: 'command.account.update.failed',
+ },
+ 'command.account.delete': {
+  success: 'event.account.deleted',
+  failure: 'command.account.delete.failed',
+ },
+ 'command.company.create': {
+  success: 'event.company.created',
+  failure: 'command.company.create.failed',
+ },
+ 'command.company.update': {
+  success: 'event.company.updated',
+  failure: 'command.company.update.failed',
+ },
+ 'command.company.delete': {
+  success: 'event.company.deleted',
+  failure: 'command.company.delete.failed',
+ },
+ 'command.customer.create': {
+  success: 'event.customer.created',
+  failure: 'command.customer.create.failed',
+ },
+ 'command.customer.update': {
+  success: 'event.customer.updated',
+  failure: 'command.customer.update.failed',
+ },
+ 'command.customer.delete': {
+  success: 'event.customer.deleted',
+  failure: 'command.customer.delete.failed',
+ },
+ 'command.invoice.create': {
+  success: 'event.invoice.created',
+  failure: 'command.invoice.create.failed',
+ },
+ 'command.invoice.update': {
+  success: 'event.invoice.updated',
+  failure: 'command.invoice.update.failed',
+ },
+ 'command.invoice.delete': {
+  success: 'event.invoice.deleted',
+  failure: 'command.invoice.delete.failed',
+ },
+ 'command.invoicePosition.create': {
+  success: 'event.invoicePosition.created',
+  failure: 'command.invoicePosition.create.failed',
+ },
+ 'command.invoicePosition.update': {
+  success: 'event.invoicePosition.updated',
+  failure: 'command.invoicePosition.update.failed',
+ },
+ 'command.invoicePosition.delete': {
+  success: 'event.invoicePosition.deleted',
+  failure: 'command.invoicePosition.delete.failed',
+ },
+}

@@ -1,5 +1,5 @@
-import Joi from 'joi'
-import {currencySchema, dbObjectWrapperSchema, idSchema, SchemasToCommand} from './index'
+import * as Joi from 'joi'
+import { currencySchema, dbObjectWrapperSchema, idSchema } from './index'
 
 export const invoiceNumberSchema = Joi.string() // TODO add schema, and configuration type in Settings.ts
 
@@ -36,7 +36,7 @@ export const updateInvoiceSchema = Joi.object({
 
 export const deleteInvoiceSchema = Joi.object({ id: idSchema.required() })
 
-export const invoiceSchema = createInvoiceSchema.append(dbObjectWrapperSchema)
+export const invoiceSchema = createInvoiceSchema.concat(dbObjectWrapperSchema)
 
 export const invoiceSchemasToCommandMap = {
   'command.invoice.create': createInvoiceSchema,
@@ -45,7 +45,7 @@ export const invoiceSchemasToCommandMap = {
 }
 
 export const invoiceSchemasToEventMap = {
-    'event.invoice.created': {after: invoiceSchema},
-    'event.invoice.updated': {before: invoiceSchema, after: invoiceSchema},
-    'event.invoice.deleted': {before: invoiceSchema},
+  'event.invoice.created': { after: invoiceSchema },
+  'event.invoice.updated': { before: invoiceSchema, after: invoiceSchema },
+  'event.invoice.deleted': { before: invoiceSchema },
 }

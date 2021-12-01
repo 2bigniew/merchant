@@ -1,7 +1,7 @@
 import Joi from 'joi'
-import {COMMAND, Command, CommandsNames} from '../../../../contract/Command'
-import {schemasToCommandMap, schemasToEventMap} from './schemas'
-import {EVENT, Event, EventsNames} from "../../../../contract/Event";
+import { COMMAND, Command, CommandsNames } from '../../../../contract/Command'
+import { EVENT, Event, EventsNames } from '../../../../contract/Event'
+import { schemasToCommandMap, schemasToEventMap } from './schemas/mappings'
 
 export const validateSchema = <T>(
   payload: T,
