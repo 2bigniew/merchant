@@ -1,7 +1,7 @@
 import { Database } from 'sqlite3'
 import { DB } from './main'
 import { Account, CreateAccountPayload, UpdateAccountPayload } from '../../../../contract/Account'
-import {mapDBObjectToJSFormat, prepareUpdateProps, removeUndefined} from './helpers'
+import { mapDBObjectToJSFormat, prepareUpdateProps, removeUndefined } from './helpers'
 import { TableName } from '../../../../contract/general'
 import connection from './connection'
 

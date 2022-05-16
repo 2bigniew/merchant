@@ -5,15 +5,18 @@ import EventService from '../services/event/event.service'
 
 export class AccountListener {
   constructor() {
-    EventService.eventEmiter<CreateAccountPayload>(
+    EventService.onCommandHandler<CreateAccountPayload>(
       'command.account.create',
       this.accountCreateHandler,
     )
-    EventService.eventEmiter<UpdateAccountPayload>(
+    EventService.onCommandHandler<UpdateAccountPayload>(
       'command.account.update',
       this.accountUpdateHandler,
     )
-    EventService.eventEmiter<{ id: number }>('command.account.delete', this.accountDeleteHandler)
+    EventService.onCommandHandler<{ id: number }>(
+      'command.account.delete',
+      this.accountDeleteHandler,
+    )
   }
 
   private async accountCreateHandler(payload: CreateAccountPayload): Promise<Changed<Account>> {

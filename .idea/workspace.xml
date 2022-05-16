@@ -2,29 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0b6e0dde-f703-4299-9ecf-c296df678b93" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/server/src/account/account.listener.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/mappings.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/services/event/helpers.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/server/src/socket.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/contract/Command.ts" beforeDir="false" afterPath="$PROJECT_DIR$/contract/Command.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/app.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/contract/Event.ts" beforeDir="false" afterPath="$PROJECT_DIR$/contract/Event.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/core/socket.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/core/socket.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/login-panel/login-panel.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/login-panel/login-panel.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/front/src/app/login-panel/login-panel.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/login-panel/login-panel.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/login-panel/login-panel.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/login-panel/login-panel.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/account/account.listener.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/account/account.listener.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/account/account.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/account/account.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/app.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/lib/db/account.db.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/db/account.db.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/lib/validation/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/accountSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/accountSchema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/companySchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/companySchema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/customerSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/customerSchema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/index.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/invoicePositionSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/invoicePositionSchema.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/src/lib/validation/schemas/invoiceSchema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/lib/validation/schemas/invoiceSchema.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/main.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/main.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/src/services/event/event.service.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/event/event.service.spec.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/src/services/event/event.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/server/src/services/event/event.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/server/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +40,7 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
-    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/app_backend/node_modules/jest" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/server/node_modules/jest" />
     <property name="nodejs_package_manager_path" value="yarn" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="ts.external.directory.path" value="$PROJECT_DIR$/front/node_modules/typescript/lib" />
@@ -66,21 +58,7 @@
       <recent name="$PROJECT_DIR$/app_backend/test/lib" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.Database - InvoicePosition Table.Should return undefined id invoice position to delete does not exist">
-    <configuration name="Database - InvoicePosition Table.Should create invoice position" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/app_backend" />
-      <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/app_backend/test/db/invoicePositions.db.spec.ts" />
-      <test-names>
-        <test-name value="Database - InvoicePosition Table" />
-        <test-name value="Should create invoice position" />
-      </test-names>
-      <method v="2" />
-    </configuration>
+  <component name="RunManager" selected="Jest.EventService.should emit event">
     <configuration name="Database - InvoicePosition Table.Should delete invoice position" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -109,41 +87,54 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Database - InvoicePosition Table.Should return undefined id invoice position to update does not exist" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="EventService" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/app_backend" />
+      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/server" />
       <envs />
-      <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/app_backend/test/db/invoicePositions.db.spec.ts" />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/server/src/services/event/event.service.spec.ts" />
       <test-names>
-        <test-name value="Database - InvoicePosition Table" />
-        <test-name value="Should return undefined id invoice position to update does not exist" />
+        <test-name value="EventService" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="Database - InvoicePosition Table.Should update invoice position" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="EventService.should be defined" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/app_backend/node_modules/jest" />
-      <working-dir value="$PROJECT_DIR$/app_backend" />
+      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/server" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/app_backend/test/db/invoicePositions.db.spec.ts" />
+      <test-file value="$PROJECT_DIR$/server/src/services/event/event.service.spec.ts" />
       <test-names>
-        <test-name value="Database - InvoicePosition Table" />
-        <test-name value="Should update invoice position" />
+        <test-name value="EventService" />
+        <test-name value="should be defined" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="EventService.should emit event" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/server/node_modules/jest" />
+      <working-dir value="$PROJECT_DIR$/server" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/server/src/services/event/event.service.spec.ts" />
+      <test-names>
+        <test-name value="EventService" />
+        <test-name value="should emit event" />
       </test-names>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.EventService.should emit event" />
+        <item itemvalue="Jest.EventService" />
+        <item itemvalue="Jest.EventService.should be defined" />
         <item itemvalue="Jest.Database - InvoicePosition Table.Should return undefined id invoice position to delete does not exist" />
         <item itemvalue="Jest.Database - InvoicePosition Table.Should delete invoice position" />
-        <item itemvalue="Jest.Database - InvoicePosition Table.Should return undefined id invoice position to update does not exist" />
-        <item itemvalue="Jest.Database - InvoicePosition Table.Should update invoice position" />
-        <item itemvalue="Jest.Database - InvoicePosition Table.Should create invoice position" />
       </list>
     </recent_temporary>
   </component>
@@ -205,6 +196,12 @@
       <workItem from="1637681865798" duration="7822000" />
       <workItem from="1638202027151" duration="9417000" />
       <workItem from="1638298785308" duration="4856000" />
+      <workItem from="1639424185768" duration="4043000" />
+      <workItem from="1639506928222" duration="9898000" />
+      <workItem from="1639592303139" duration="4319000" />
+      <workItem from="1639738909079" duration="9508000" />
+      <workItem from="1639822131918" duration="3836000" />
+      <workItem from="1641754829727" duration="903000" />
     </task>
     <servers />
   </component>
