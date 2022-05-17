@@ -1,7 +1,7 @@
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
 import socketIo from 'socket.io'
-import initDB from './lib/db/init'
+import initDB from './services/repository/db/init'
 import { initializeListeners } from './socket'
 
 const PORT = process.env.PORT || 4000

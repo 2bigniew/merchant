@@ -1,7 +1,7 @@
 import {Injectable, OnInit} from '@angular/core';
 import * as io from 'socket.io-client'
-import {COMMAND, Command, COMMANDS_TO_EVENTS} from "contract/Command";
-import {EVENT} from "contract/Event";
+import {COMMAND, Command, CommandFailure, COMMANDS_TO_EVENTS, CommandsFailuresNames} from "contract/Command";
+import {EVENT, EventsNames, Event} from "contract/Event";
 import {Observable, from, Subscription} from "rxjs";
 import {observeOn} from "rxjs/operators";
 
