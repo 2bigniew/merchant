@@ -1,0 +1,29 @@
+{
+  "name": "merchant",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "front": "yarn workspace front start",
+    "server": "yarn workspace server start",
+    "start": "concurrently --kill-others-on-fail \"yarn server\"  \"yarn front\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2bigniew/merchant.git"
+  },
+  "author": "2bigniew",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2bigniew/merchant/issues"
+  },
+  "homepage": "https://github.com/2bigniew/merchant#readme",
+  "private": true,
+  "workspaces": [
+    "front",
+    "server",
+    "contract",
+    "lib"
+  ],
+  "dependencies": {}
+}

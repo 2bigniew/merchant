@@ -1,9 +1,9 @@
 import * as Joi from 'joi'
-import { EventsNames } from '../../../../../contract/Event'
-import { CommandsNames } from '../../../../../contract/Command'
-import { CURRENCY_VALUES } from '../../../../../contract/general'
-import { COMMANDS_NAMES } from '../../../../../contract/Command'
-import { EVENTS_NAMES } from '../../../../../contract/Event'
+import { EventsNames } from 'Event'
+import { CommandsNames } from 'Command'
+import { CURRENCY_VALUES } from 'general'
+import { COMMANDS_NAMES } from 'Command'
+import { EVENTS_NAMES } from 'Event'
 
 export type SchemasToCommand = Record<CommandsNames, Joi.Schema>
 

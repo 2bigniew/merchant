@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common'
-import { AccountTable } from '../../lib/db/account.db'
-import { CompanyTable } from '../../lib/db/company.db'
-import { CustomerTable } from '../../lib/db/customer.db'
-import { InvoiceTable } from '../../lib/db/invoice.db'
-import { InvoicePositionsTable } from '../../lib/db/invoicePositions.db'
-import connection from '../../lib/db/connection'
+import { AccountTable } from './db/account.db'
+import { CompanyTable } from './db/company.db'
+import { CustomerTable } from './db/customer.db'
+import { InvoiceTable } from './db/invoice.db'
+import { InvoicePositionsTable } from './db/invoicePositions.db'
+import connection from './db/connection'
 
 @Injectable()
 export class RepositoryService {

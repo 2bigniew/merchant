@@ -1,6 +1,6 @@
+import { Company, CreateCompanyPayload, UpdateCompanyPayload } from 'contract/Company'
+import { DBObject, TableName } from 'contract/general'
 import { DB } from './main'
-import { DBObject, TableName } from '../../../../contract/general'
-import { CreateCompanyPayload, Company, UpdateCompanyPayload } from '../../../../contract/Company'
 import {
   getSQLitifiedKeysNames,
   mapDBObjectToJSFormat,

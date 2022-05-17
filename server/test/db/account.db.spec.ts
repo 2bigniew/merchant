@@ -1,5 +1,5 @@
-import initDB from '../../src/lib/db/init'
-import AccountTable from '../../src/lib/db/account.db'
+import initDB from '../../src/services/repository/db/init'
+import AccountTable from '../../src/services/repository/db/account.db'
 import { prepareCreateAccountPayload } from '../lib/fixtures'
 
 const accountData = [

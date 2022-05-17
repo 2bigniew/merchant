@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {Account} from "../../../../contract/Account";
 import {retry} from "rxjs/operators";
+import {Account} from "contract/Account";
 
 @Injectable({
   providedIn: 'root'

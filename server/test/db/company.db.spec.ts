@@ -1,6 +1,6 @@
-import initDB from '../../src/lib/db/init'
-import CompanyTable from '../../src/lib/db/company.db'
-import AccountTable from '../../src/lib/db/account.db'
+import initDB from '../../src/services/repository/db/init'
+import CompanyTable from '../../src/services/repository/db/company.db'
+import AccountTable from '../../src/services/repository/db/account.db'
 import { UpdateCompanyPayload } from '../../../contract/Company'
 import {
   createCompanyData,
