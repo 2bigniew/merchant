@@ -1,5 +1,5 @@
 import { Account, CreateAccountPayload, UpdateAccountPayload } from '../../../contract/Account'
-import AccountTable from '../lib/db/account.db'
+import AccountTable from '../services/repository/db/account.db'
 import { Changed } from '../../../contract/Event'
 import EventService from '../services/event/event.service'
 

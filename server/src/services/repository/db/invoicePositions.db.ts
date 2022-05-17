@@ -1,7 +1,12 @@
+import { DBObject, TableName } from 'contract/general'
+import {
+  CreateInvoicePositionPayload,
+  InvoicePosition,
+  UpdateInvoicePositionPayload,
+} from 'contract/InvoicePosition'
+import { Invoice } from 'contract/Invoice'
 import { DB } from './main'
 import { Database } from 'sqlite3'
-import { DBObject, TableName } from '../../../../contract/general'
-import { Invoice } from '../../../../contract/Invoice'
 import {
   getSQLitifiedKeysNames,
   mapDBObjectToJSFormat,
@@ -11,11 +16,7 @@ import {
   prepareUpdateProps,
   removeUndefined,
 } from './helpers'
-import {
-  InvoicePosition,
-  CreateInvoicePositionPayload,
-  UpdateInvoicePositionPayload,
-} from '../../../../contract/InvoicePosition'
+
 import connection from './connection'
 
 export class InvoicePositionsTable extends DB {

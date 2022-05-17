@@ -6,7 +6,7 @@ import {
   prepareUpdateProps,
   SQLitiffy,
   WhereSource,
-} from '../../src/lib/db/helpers'
+} from '../../src/services/repository/db/helpers'
 
 const payload = {
   firstname: 'Krishna',

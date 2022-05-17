@@ -20,6 +20,8 @@
     "@angular/router": "~12.2.0",
     "@types/socket.io-client": "^3.0.0",
     "bootstrap": "^4.5.3",
+    "contract": "1.0.0",
+    "cross-env": "5.0.5",
     "ngx-bootstrap": "^7.1.0",
     "rxjs": "~6.6.0",
     "socket.io-client": "^4.3.2",

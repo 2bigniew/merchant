@@ -1,5 +1,5 @@
 import sqlite3, { Database } from 'sqlite3'
-import { TableName } from '../../../../contract/general'
+import { TableName } from 'contract/general'
 import { SQLitiffy } from './helpers'
 
 export abstract class DB {

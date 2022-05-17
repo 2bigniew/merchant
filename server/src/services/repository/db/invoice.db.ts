@@ -1,7 +1,7 @@
+import { DBObject, TableName } from 'contract/general'
+import { CreateInvoicePayload, Invoice, UpdateInvoicePayload } from 'contract/Invoice'
 import { DB } from './main'
 import { Database } from 'sqlite3'
-import { DBObject, TableName } from '../../../../contract/general'
-import { CreateInvoicePayload, Invoice, UpdateInvoicePayload } from '../../../../contract/Invoice'
 import {
   getSQLitifiedKeysNames,
   mapDBObjectToJSFormat,

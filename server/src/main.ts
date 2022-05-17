@@ -1,10 +1,10 @@
+import { COMMAND, COMMANDS_NAMES, CommandsFailuresNames } from 'contract/Command'
+import { EVENTS_NAMES } from 'contract/Event'
 import { NestFactory } from '@nestjs/core'
 import { AppModule } from './app.module'
-import initDB from './lib/db/init'
+import initDB from './services/repository/db/init'
 import socketIo, { Socket } from 'socket.io'
-import { fixtures } from './lib/fixtures'
-import { COMMAND, COMMANDS_NAMES, CommandsFailuresNames } from '../../contract/Command'
-import { EVENT, EVENTS_NAMES } from '../../contract/Event'
+import { fixtures } from './services/repository/fixtures'
 import EventService from './services/event/event.service'
 
 const PORT = process.env.PORT || 4000

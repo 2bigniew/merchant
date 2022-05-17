@@ -1,7 +1,7 @@
 import {Injectable, OnInit} from '@angular/core';
 import * as io from 'socket.io-client'
-import {COMMAND, Command, COMMANDS_TO_EVENTS} from "../../../../contract/Command";
-import {EVENT} from "../../../../contract/Event";
+import {COMMAND, Command, COMMANDS_TO_EVENTS} from "contract/Command";
+import {EVENT} from "contract/Event";
 
 @Injectable({
   providedIn: 'root'

@@ -1,13 +1,13 @@
-import initDB from '../../src/lib/db/init'
+import initDB from '../../src/services/repository/db/init'
 import {
   createInvoiceData,
   prepareCreateAccountPayload,
   prepareCreateCustomerPayload,
   prepareCreateInvoicePayload,
 } from '../lib/fixtures'
-import AccountTable from '../../src/lib/db/account.db'
-import CustomerTable from '../../src/lib/db/customer.db'
-import InvoiceTable from '../../src/lib/db/invoice.db'
+import AccountTable from '../../src/services/repository/db/account.db'
+import CustomerTable from '../../src/services/repository/db/customer.db'
+import InvoiceTable from '../../src/services/repository/db/invoice.db'
 import { UpdateInvoicePayload } from '../../../contract/Invoice'
 
 describe('Database - Invoice Table', () => {

@@ -4,11 +4,11 @@ import {
   prepareCreateCustomerPayload,
   prepareCreateInvoicePositionPayload,
 } from '../lib/fixtures'
-import AccountTable from '../../src/lib/db/account.db'
-import CustomerTable from '../../src/lib/db/customer.db'
-import initDB from '../../src/lib/db/init'
-import InvoiceTable from '../../src/lib/db/invoice.db'
-import InvoicePositionsTable from '../../src/lib/db/invoicePositions.db'
+import AccountTable from '../../src/services/repository/db/account.db'
+import CustomerTable from '../../src/services/repository/db/customer.db'
+import initDB from '../../src/services/repository/db/init'
+import InvoiceTable from '../../src/services/repository/db/invoice.db'
+import InvoicePositionsTable from '../../src/services/repository/db/invoicePositions.db'
 import { UpdateInvoicePositionPayload } from '../../../contract/InvoicePosition'
 
 describe('Database - InvoicePosition Table', () => {

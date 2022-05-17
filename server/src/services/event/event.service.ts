@@ -1,3 +1,6 @@
+import { Changed, EVENT, EventsNames, Event } from 'contract/Event'
+import {validateCommand, validateEvent, validateSchema} from "contract/validation";
+import {commandTypeSchema, eventTypeSchema} from "contract/validation/schemas";
 import { Injectable } from '@nestjs/common'
 import EventEmitter from 'events'
 import {
@@ -7,10 +10,7 @@ import {
   COMMANDS_TO_EVENTS,
   CommandsFailuresNames,
   CommandsNames,
-} from '../../../../contract/Command'
-import { validateCommand, validateEvent, validateSchema } from '../../lib/validation'
-import {Changed, EVENT, Event, EventsNames} from '../../../../contract/Event'
-import { commandTypeSchema, eventTypeSchema } from '../../lib/validation/schemas'
+} from 'contract/Command'
 
 @Injectable()
 export class EventService {
