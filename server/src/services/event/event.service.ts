@@ -1,7 +1,7 @@
 import { Changed, EVENT, EventsNames, Event } from 'contract/Event'
 import {validateCommand, validateEvent, validateSchema} from "lib/validation";
 import {commandTypeSchema, eventTypeSchema} from "lib/validation/schemas";
-import { Injectable } from '@nestjs/common'
+import { forwardRef, Inject, Injectable, Logger } from '@nestjs/common'
 import EventEmitter from 'events'
 import {
   Command,
@@ -11,93 +11,96 @@ import {
   CommandsFailuresNames,
   CommandsNames,
 } from 'contract/Command'
+import { Socket } from 'socket.io'
+import {
+  getListenersCountForEvents,
+  LISTENERS_COUNT_FOR_EVENTS,
+  ListenersCountForEvents,
+} from './helpers'
 
 @Injectable()
 export class EventService {
-  constructor(private broker: EventEmitter) {}
+  listenersCountsForEvents: Partial<ListenersCountForEvents>
 
-  public prepareCommand(args: any): Command {
-    const { name, payload } = args
-    const commandName = validateSchema(name, commandTypeSchema)
-    return validateCommand(commandName, payload)
+  constructor(
+    @Inject(forwardRef(() => EventEmitter)) private readonly broker: EventEmitter,
+    @Inject(forwardRef(() => Logger)) private readonly logger = new Logger('EventService'),
+  ) {
+    this.listenersCountsForEvents = {
+      ...getListenersCountForEvents(),
+      ...LISTENERS_COUNT_FOR_EVENTS,
+    }
   }
 
-  public prepareEvent(args: any): Event {
-    const { name, payload } = args
-    const eventName = validateSchema(name, eventTypeSchema)
-    return validateEvent(eventName, payload)
+  public onSocketCommandHandler = (args: any) => {
+    const command = this.prepareCommand(args)
+    this.emitCommand(command)
   }
 
-  public async emitCommand(command: Command): Promise<void> {
-    return new Promise((resolve, reject) => {
-      const { success, failure } = COMMANDS_TO_EVENTS[command.name]
-
-      const timeout = setTimeout(() => {
-        this.broker.emit(failure, command.payload)
-        console.log(`Command failed - ${failure}`)
-        reject()
-      }, 5000)
-
-      console.log(success)
-
-      this.broker.on(success, () => {
-        console.log(`Command succeed, respond by an event - ${success}`)
-        clearTimeout(timeout)
-        resolve()
-      })
-
-      this.broker.emit(command.name, command.payload)
-    })
-  }
-
-  public eventEmiter<T>(
+  public onCommandHandler<T>(
     commandName: CommandsNames,
     callback: (payload: T) => Promise<Changed<T>>,
   ): void {
     const { success } = COMMANDS_TO_EVENTS[commandName]
-    this.broker.on(commandName, async (payload: T) => {
+
+    this.broker.addListener(commandName, async (payload: T) => {
       const response = await callback(payload)
-      console.log(success, response)
       this.broker.emit(success, response)
     })
   }
 
-  public eventHandler(
-    eventName: EventsNames,
-    callback: (action: string, payload: Event) => boolean,
-  ): void {
-    this.broker.on(eventName, (payload: any) => {
-      console.log('ON EVENT')
+  public onEventSuccessHandler(socket: Socket, eventName: EventsNames): void {
+    const listenersLimit = this.listenersCountsForEvents[eventName] || 1
+    if (this.broker.listenerCount(eventName) >= listenersLimit) {
+      // TODO TEMP - find better solution
+      this.logger.log(`Listeners for ${eventName} already declared`)
+      return
+    }
+    this.broker.addListener(eventName, (payload: any) => {
       const event = this.prepareEvent({
         type: EVENT,
         name: eventName,
         payload,
       })
-      try {
-        callback(EVENT, event)
-      } catch (e) {
-        console.error(e)
-      }
+      this.emitSocketEvent(socket, event)
     })
   }
 
-  public commandsFailuresHandler(
-    commandFailureName: CommandsFailuresNames,
-    callback: (action: string, payload: CommandFailure) => boolean,
-  ): void {
-    this.broker.on(commandFailureName, (payload: any) => {
-      console.log(`failureDetails: ${commandFailureName}`)
-      console.log(payload)
-      try {
-        callback(COMMAND_FAILURE, {
-          type: COMMAND_FAILURE,
-          name: commandFailureName,
-          payload,
-        })
-      } catch (e) {
-        console.error(e)
+  public onEventFailHandler(socket: Socket, commandFailureName: CommandsFailuresNames): void {
+    this.broker.addListener(commandFailureName, (payload: any) => {
+      const commandFailure = {
+        type: COMMAND_FAILURE,
+        name: commandFailureName,
+        payload,
       }
+      this.emitSocketEvent(socket, commandFailure)
     })
+  }
+
+  private emitSocketEvent(socket: Socket, socketEvent: Event | CommandFailure) {
+    try {
+      socket.emit(socketEvent.type, socketEvent)
+      this.logger.log(`Socket event emitted, type: ${socketEvent.type}, name: ${socketEvent.name}`)
+    } catch (e) {
+      this.logger.error(e)
+    }
+  }
+
+  private prepareCommand(args: any): Command {
+    const { name, payload } = args
+    const commandName = validateSchema(name, commandTypeSchema)
+    return validateCommand(commandName, payload)
+  }
+
+  private prepareEvent(args: any): Event {
+    const { name, payload } = args
+    const eventName = validateSchema(name, eventTypeSchema)
+    return validateEvent(eventName, payload)
+  }
+
+  private emitCommand(command: Command): void {
+    this.broker.emit(command.name, command.payload)
+    this.logger.log(`Command: ${command.name} succeed`)
   }
 }
 

@@ -34,7 +34,5 @@ export class LoginPanelComponent implements OnInit {
       }
     }
     const promise = await this.socketService.sendCommand(commandData)
-    console.log('promise')
-    console.log(promise)
   }
 }

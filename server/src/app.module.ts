@@ -9,4 +9,6 @@ import { AccountModule } from './account/account.module'
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule {
+  constructor() {}
+}

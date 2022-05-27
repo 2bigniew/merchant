@@ -3,7 +3,6 @@ import {Company} from "./Company";
 import {Customer} from "./Customer";
 import {Invoice} from "./Invoice";
 import {InvoicePosition} from "./InvoicePosition";
-import {CommandsNames} from "./Command";
 
 export const EVENT = 'event' as const
 
