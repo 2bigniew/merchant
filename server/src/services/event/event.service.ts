@@ -1,6 +1,6 @@
 import { Changed, EVENT, EventsNames, Event } from 'contract/Event'
-import {validateCommand, validateEvent, validateSchema} from "contract/validation";
-import {commandTypeSchema, eventTypeSchema} from "contract/validation/schemas";
+import {validateCommand, validateEvent, validateSchema} from "lib/validation";
+import {commandTypeSchema, eventTypeSchema} from "lib/validation/schemas";
 import { Injectable } from '@nestjs/common'
 import EventEmitter from 'events'
 import {
