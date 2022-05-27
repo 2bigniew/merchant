@@ -1,3 +1,6 @@
+import { CommandsNames } from './Command'
+import { Changed } from './Event'
+
 export interface Account {
     id: number
     firstname: string
@@ -20,9 +23,11 @@ export interface AccountRouter {
     'account/list': {
         response: Account[]
     }
-
-
 }
 
+type AccountCommandsName = Extract<CommandsNames, 'command.account.create' | 'command.account.update' | 'command.account.delete'>
 
-export type AccountPaths = keyof AccountRouter
+export type AccountListenerResponse<T>  =  T extends AccountCommandsName
+    ? Changed<Account> 
+    : never 
+

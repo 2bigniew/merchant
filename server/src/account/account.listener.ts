@@ -1,19 +1,20 @@
 import { Account, CreateAccountPayload, UpdateAccountPayload } from '../../../contract/Account'
+import { CommandAccountCreate, CommandAccountUpdate, CommandAccountDelete } from 'contract/Command'
 import AccountTable from '../services/repository/db/account.db'
 import { Changed } from '../../../contract/Event'
 import EventService from '../services/event/event.service'
 
 export class AccountListener {
   constructor() {
-    EventService.onCommandHandler<CreateAccountPayload>(
+    EventService.onCommandHandler<CommandAccountCreate & { type: 'command' }>(
       'command.account.create',
       this.accountCreateHandler,
     )
-    EventService.onCommandHandler<UpdateAccountPayload>(
+    EventService.onCommandHandler<CommandAccountUpdate & { type: 'command' }>(
       'command.account.update',
       this.accountUpdateHandler,
     )
-    EventService.onCommandHandler<{ id: number }>(
+    EventService.onCommandHandler<CommandAccountDelete & { type: 'command' }>(
       'command.account.delete',
       this.accountDeleteHandler,
     )

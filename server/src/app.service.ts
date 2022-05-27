@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common'
 import { AccountListener } from './account/account.listener'
 
+// TODO make class Listeners
 type Listeners = {
   accountListener: AccountListener
 }

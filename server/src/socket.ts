@@ -1,7 +1,13 @@
 import { Socket } from 'socket.io'
-import { EVENTS_NAMES } from '../../contract/Event'
+import { EVENTS_NAMES } from 'contract/Event'
+import {
+  COMMAND,
+  COMMANDS_NAMES,
+  CommandsFailuresNames,
+  Command,
+  CommandsNames,
+} from 'contract/Command'
 import EventService from './services/event/event.service'
-import { COMMAND, COMMANDS_NAMES, CommandsFailuresNames } from '../../contract/Command'
 
 export const initializeListeners = (socket: Socket) => {
   console.log('Socket: client connected')
@@ -27,10 +33,12 @@ const socketEventsEmmiter = (socket: Socket) => {
 }
 
 const socketCommandsFailuresEmitter = (socket: Socket) => {
-  const commandFailureNames = COMMANDS_NAMES.map(
-    (name) => `${name}.failed` as CommandsFailuresNames,
-  )
+  const commandFailureNames = COMMANDS_NAMES.map((name) => createFailedCommandName(name))
   for (const name of commandFailureNames) {
     EventService.onEventFailHandler(socket, name)
   }
+}
+
+const createFailedCommandName = (command: CommandsNames): CommandsFailuresNames => {
+  return `${command}.failed`
 }

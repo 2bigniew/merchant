@@ -1,5 +1,5 @@
 import { camelCase, snakeCase } from 'lodash'
-import {DBObject} from "contract/general";
+import { DBObject } from 'contract/general'
 
 export const prepareCreateProps = <T>(payload: T): { keys: string; values: string } => {
   const keys = []

@@ -1,5 +1,5 @@
 import { Controller, Get, Param } from '@nestjs/common'
-import { Account } from '../../../contract/Account'
+import { Account } from 'contract/Account'
 import { RepositoryService } from '../services/repository/repository.service'
 
 @Controller('/account')

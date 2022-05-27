@@ -1,4 +1,4 @@
-import {CreateAccountPayload, UpdateAccountPayload} from "./Account";
+import {AccountListenerResponse, CreateAccountPayload, UpdateAccountPayload} from "./Account";
 import {CreateCompanyPayload, UpdateCompanyPayload} from "./Company";
 import {CreateCustomerPayload, UpdateCustomerPayload} from "./Customer";
 import {CreateInvoicePayload, UpdateInvoicePayload} from "./Invoice";
@@ -6,6 +6,7 @@ import {CreateInvoicePositionPayload, UpdateInvoicePositionPayload} from "./Invo
 import {EventsNames} from "./Event";
 
 export const COMMAND = 'command' as const
+
 export const COMMAND_FAILURE = 'command.failure' as const
 
 export const COMMANDS_NAMES = [
@@ -32,35 +33,35 @@ export type CommandsFailuresNames = `${CommandsNames}.failed`
 
 type CommandBase<N extends CommandsNames, P> = { name: N; payload: P }
 
-type CommandAccountCreate = CommandBase<'command.account.create', CreateAccountPayload>
+export type CommandAccountCreate = CommandBase<'command.account.create', CreateAccountPayload>
 
-type CommandAccountUpdate = CommandBase<'command.account.update', UpdateAccountPayload>
+export type CommandAccountUpdate = CommandBase<'command.account.update', UpdateAccountPayload>
 
-type CommandAccountDelete = CommandBase<'command.account.delete', { id: number }>
+export type CommandAccountDelete = CommandBase<'command.account.delete', { id: number }>
 
-type CommandCompanyCreate = CommandBase<'command.company.create', CreateCompanyPayload>
+export type CommandCompanyCreate = CommandBase<'command.company.create', CreateCompanyPayload>
 
-type CommandCompanyUpdate = CommandBase<'command.company.update', UpdateCompanyPayload>
+export type CommandCompanyUpdate = CommandBase<'command.company.update', UpdateCompanyPayload>
 
-type CommandCompanyDelete = CommandBase<'command.company.delete', { id: number }>
+export type CommandCompanyDelete = CommandBase<'command.company.delete', { id: number }>
 
-type CommandCustomerCreate = CommandBase<'command.customer.create', CreateCustomerPayload>
+export type CommandCustomerCreate = CommandBase<'command.customer.create', CreateCustomerPayload>
 
-type CommandCustomerUpdate = CommandBase<'command.customer.update', UpdateCustomerPayload>
+export type CommandCustomerUpdate = CommandBase<'command.customer.update', UpdateCustomerPayload>
 
-type CommandCustomerDelete = CommandBase<'command.customer.delete', { id: number }>
+export type CommandCustomerDelete = CommandBase<'command.customer.delete', { id: number }>
 
-type CommandInvoiceCreate = CommandBase<'command.invoice.create', CreateInvoicePayload>
+export type CommandInvoiceCreate = CommandBase<'command.invoice.create', CreateInvoicePayload>
 
-type CommandInvoiceUpdate = CommandBase<'command.invoice.update', UpdateInvoicePayload>
+export type CommandInvoiceUpdate = CommandBase<'command.invoice.update', UpdateInvoicePayload>
 
-type CommandInvoiceDelete = CommandBase<'command.invoice.delete', { id: number }>
+export type CommandInvoiceDelete = CommandBase<'command.invoice.delete', { id: number }>
 
-type CommandInvoicePositionCreate = CommandBase<'command.invoicePosition.create', CreateInvoicePositionPayload>
+export type CommandInvoicePositionCreate = CommandBase<'command.invoicePosition.create', CreateInvoicePositionPayload>
 
-type CommandInvoicePositionUpdate = CommandBase<'command.invoicePosition.update', UpdateInvoicePositionPayload>
+export type CommandInvoicePositionUpdate = CommandBase<'command.invoicePosition.update', UpdateInvoicePositionPayload>
 
-type CommandInvoicePositionDelete = CommandBase<'command.invoicePosition.delete', { id: number }>
+export type CommandInvoicePositionDelete = CommandBase<'command.invoicePosition.delete', { id: number }>
 
 export type Command = { type: 'command'} & (
     | CommandAccountCreate
@@ -151,3 +152,6 @@ export const COMMANDS_TO_EVENTS: Record<
   failure: 'command.invoicePosition.delete.failed',
  },
 }
+
+
+export type CommandListenerRespone<T extends CommandsNames> = AccountListenerResponse<T>

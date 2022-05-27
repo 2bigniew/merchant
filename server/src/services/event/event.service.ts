@@ -1,6 +1,6 @@
 import { Changed, EVENT, EventsNames, Event } from 'contract/Event'
-import {validateCommand, validateEvent, validateSchema} from "lib/validation";
-import {commandTypeSchema, eventTypeSchema} from "lib/validation/schemas";
+import { validateCommand, validateEvent, validateSchema } from 'lib/validation'
+import { commandTypeSchema, eventTypeSchema } from 'lib/validation/schemas'
 import { forwardRef, Inject, Injectable, Logger } from '@nestjs/common'
 import EventEmitter from 'events'
 import {
@@ -9,6 +9,7 @@ import {
   CommandFailure,
   COMMANDS_TO_EVENTS,
   CommandsFailuresNames,
+  CommandListenerRespone,
   CommandsNames,
 } from 'contract/Command'
 import { Socket } from 'socket.io'
@@ -37,9 +38,9 @@ export class EventService {
     this.emitCommand(command)
   }
 
-  public onCommandHandler<T>(
-    commandName: CommandsNames,
-    callback: (payload: T) => Promise<Changed<T>>,
+  public onCommandHandler<T extends Command>(
+    commandName: T['name'],
+    callback: (payload: T['payload']) => Promise<CommandListenerRespone<T['name']>>,
   ): void {
     const { success } = COMMANDS_TO_EVENTS[commandName]
 
