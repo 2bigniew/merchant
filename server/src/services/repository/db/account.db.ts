@@ -11,13 +11,13 @@ export class AccountTable extends DB {
   }
 
   public async getAccounts(): Promise<Account[]> {
-    const query = `SELECT * FROM ${this.tableName}`
+    const query = `SELECT * FROM ${this.tableName};`
     const accounts = await this.all<Account, undefined>(query)
     return removeUndefined(accounts.map((account) => mapDBObjectToJSFormat<Account>(account)))
   }
 
   public async getAccountsById(id: number): Promise<Account | undefined> {
-    const query = `SELECT * FROM ${this.tableName} WHERE id = $id LIMIT 1`
+    const query = `SELECT * FROM ${this.tableName} WHERE id = $id LIMIT 1;`
     const account = await this.get<Account, { id: number }>(query, { id })
     return mapDBObjectToJSFormat(account)
   }

@@ -18,13 +18,13 @@ export class InvoiceTable extends DB {
   }
 
   public async getInvoices(): Promise<Invoice[]> {
-    const query = `SELECT * FROM ${this.tableName}`
+    const query = `SELECT * FROM ${this.tableName};`
     const invoices = await this.all<Invoice, undefined>(query)
     return removeUndefined(invoices.map((invoice) => mapDBObjectToJSFormat(invoice)))
   }
 
   public async getInvoiceById(id: number): Promise<Invoice | undefined> {
-    const query = `SELECT * FROM ${this.tableName} WHERE id = $id LIMIT 1`
+    const query = `SELECT * FROM ${this.tableName} WHERE id = $id LIMIT 1;`
     const invoice = await this.get<Invoice, { id: number }>(query, { id })
     return mapDBObjectToJSFormat(invoice)
   }

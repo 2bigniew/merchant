@@ -1,3 +1,5 @@
+import { CommandsNames } from "./Command";
+import { Changed } from "./Event";
 import {Currency} from "./general";
 
 export interface InvoicePosition {
@@ -20,3 +22,9 @@ export interface InvoicePosition {
 export type CreateInvoicePositionPayload = Omit<InvoicePosition, 'id' | 'createdAt'>
 
 export type UpdateInvoicePositionPayload = Partial<CreateInvoicePositionPayload> & { id: number }
+
+type InvoicePositionCommandsName = Extract<CommandsNames, 'command.invoicePosition.create' | 'command.invoicePosition.update' | 'command.invoicePosition.delete'>
+
+export type InvoicePositionListenerResponse<T>  =  T extends InvoicePositionCommandsName
+    ? Changed<InvoicePosition> 
+    : never 

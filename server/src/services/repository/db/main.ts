@@ -47,7 +47,7 @@ export abstract class DB {
 
   protected async getLastId(tableName: TableName): Promise<number> {
     return new Promise((resolve, reject) => {
-      const query = `SELECT * FROM ${tableName} ORDER BY 1 DESC LIMIT 1`
+      const query = `SELECT * FROM ${tableName} ORDER BY 1 DESC LIMIT 1;`
       this.db.get(query, (err, row) => {
         if (err) {
           reject(err)

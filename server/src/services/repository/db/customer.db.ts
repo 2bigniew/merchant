@@ -19,13 +19,13 @@ export class CustomerTable extends DB {
   }
 
   public async getCustomers(): Promise<Customer[]> {
-    const query = `SELECT * FROM ${this.tableName}`
+    const query = `SELECT * FROM ${this.tableName};`
     const customers = await this.all<Customer, undefined>(query)
     return removeUndefined(customers.map((customer) => mapDBObjectToJSFormat(customer)))
   }
 
   public async getCustomerById(id: number): Promise<Customer | undefined> {
-    const query = `SELECT * FROM ${this.tableName} WHERE id = $id LIMIT 1`
+    const query = `SELECT * FROM ${this.tableName} WHERE id = $id LIMIT 1;`
     const customer = await this.get<Customer, { id: number }>(query, { id })
     return mapDBObjectToJSFormat(customer)
   }

@@ -1,3 +1,5 @@
+import { CommandsNames } from "./Command"
+import { Changed } from "./Event"
 
 export interface Company {
     id: number
@@ -19,3 +21,9 @@ export interface Company {
 export type CreateCompanyPayload = Omit<Company, 'id' | 'createdAt'>
 
 export type UpdateCompanyPayload = Partial<CreateCompanyPayload> & { id: number }
+
+type CompanyCommandsName = Extract<CommandsNames, 'command.company.create' | 'command.company.update' | 'command.company.delete'>
+
+export type CompanyListenerResponse<T>  =  T extends CompanyCommandsName
+    ? Changed<Company> 
+    : never 

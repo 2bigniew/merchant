@@ -8,9 +8,31 @@ import connection from './db/connection'
 
 @Injectable()
 export class RepositoryService {
-  public account = new AccountTable(connection)
-  public company = new CompanyTable(connection)
-  public customer = new CustomerTable(connection)
-  public invoice = new InvoiceTable(connection)
-  public invoicePosition = new InvoicePositionsTable(connection)
+  public account: AccountTable
+  public company: CompanyTable
+  public customer: CustomerTable
+  public invoice: InvoiceTable
+  public invoicePosition: InvoicePositionsTable
+
+  constructor(
+    account: AccountTable,
+    company: CompanyTable,
+    customer: CustomerTable,
+    invoice: InvoiceTable,
+    invoicePosition: InvoicePositionsTable,
+  ) {
+    this.account = account
+    this.company = company
+    this.customer = customer
+    this.invoice = invoice
+    this.invoicePosition = invoicePosition
+  }
 }
+
+export default new RepositoryService(
+  new AccountTable(connection),
+  new CompanyTable(connection),
+  new CustomerTable(connection),
+  new InvoiceTable(connection),
+  new InvoicePositionsTable(connection),
+)

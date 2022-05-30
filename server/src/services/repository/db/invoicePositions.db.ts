@@ -28,7 +28,7 @@ export class InvoicePositionsTable extends DB {
     invoiceId: InvoicePosition['invoiceId'],
   ): Promise<InvoicePosition[]> {
     const dbObject = mapJSObjectToDBFormat({ invoiceId })
-    const query = `SELECT * FROM ${this.tableName} ${prepareConditions(dbObject)}`
+    const query = `SELECT * FROM ${this.tableName} ${prepareConditions(dbObject)};`
     const invoicePositions = await this.all<InvoicePosition, undefined>(query)
     return removeUndefined(
       invoicePositions.map((invoicePosition) => mapDBObjectToJSFormat(invoicePosition)),
@@ -36,7 +36,7 @@ export class InvoicePositionsTable extends DB {
   }
 
   public async getInvoiceSinglePositionById(id: number): Promise<InvoicePosition | undefined> {
-    const query = `SELECT * FROM ${this.tableName} WHERE id = $id LIMIT 1`
+    const query = `SELECT * FROM ${this.tableName} WHERE id = $id LIMIT 1;`
     const invoicePosition = await this.get<InvoicePosition, { id: number }>(query, { id })
     return mapDBObjectToJSFormat(invoicePosition)
   }

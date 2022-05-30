@@ -12,7 +12,7 @@ export class AccountController {
   }
 
   @Get('/id/:accountId')
-  getAccountObs(@Param('accountId') accountId: number): Promise<Account | undefined> {
+  getAccount(@Param('accountId') accountId: number): Promise<Account | undefined> {
     return this.repository.account.getAccountsById(accountId)
   }
 }

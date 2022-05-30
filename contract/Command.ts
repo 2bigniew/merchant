@@ -1,8 +1,8 @@
 import {AccountListenerResponse, CreateAccountPayload, UpdateAccountPayload} from "./Account";
-import {CreateCompanyPayload, UpdateCompanyPayload} from "./Company";
-import {CreateCustomerPayload, UpdateCustomerPayload} from "./Customer";
-import {CreateInvoicePayload, UpdateInvoicePayload} from "./Invoice";
-import {CreateInvoicePositionPayload, UpdateInvoicePositionPayload} from "./InvoicePosition";
+import {CompanyListenerResponse, CreateCompanyPayload, UpdateCompanyPayload} from "./Company";
+import {CreateCustomerPayload, CustomerListenerResponse, UpdateCustomerPayload} from "./Customer";
+import {CreateInvoicePayload, InvoiceListenerResponse, UpdateInvoicePayload} from "./Invoice";
+import {CreateInvoicePositionPayload, InvoicePositionListenerResponse, UpdateInvoicePositionPayload} from "./InvoicePosition";
 import {EventsNames} from "./Event";
 
 export const COMMAND = 'command' as const
@@ -154,4 +154,9 @@ export const COMMANDS_TO_EVENTS: Record<
 }
 
 
-export type CommandListenerRespone<T extends CommandsNames> = AccountListenerResponse<T>
+export type CommandListenerRespone<T extends CommandsNames> = 
+    | AccountListenerResponse<T> 
+    | CompanyListenerResponse<T> 
+    | CustomerListenerResponse<T>
+    | InvoiceListenerResponse<T>
+    | InvoicePositionListenerResponse<T>
